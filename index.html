@@ -3,64 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Hut | Visual Taste Renewal</title>
+    <title>PIZZA HUT | Visual Taste Renewal</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 </head>
 <body>
 
-    <div class="intro-overlay">
-        <h1 class="intro-text">MAKE IT GREAT</h1>
+    <div class="intro-screen">
+        <h1 class="intro-word">MAKE</h1>
+        <h1 class="intro-word">IT</h1>
+        <h1 class="intro-word">GREAT</h1>
     </div>
 
-    <header class="header">
+    <header>
         <div class="logo">PIZZA HUT</div>
-        <nav class="nav">
+        <nav>
             <a href="#">MENU</a>
-            <a href="#">STORE</a>
             <a href="#">EVENT</a>
+            <a href="#">STORE</a>
         </nav>
-        <button class="order-btn">ORDER NOW</button>
+        <button class="btn-order">ORDER NOW</button>
     </header>
 
     <main>
-        <section class="main-visual">
-            <div class="visual-bg">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&q=80&w=2000" alt="Pizza Main">
+        <section class="hero">
+            <div class="hero-bg">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=2000" alt="Pizza">
             </div>
-            <h2 class="main-title">VISUAL<br><span>TASTE</span></h2>
-            <div class="floating-topping pepperoni" data-speed="0.2"></div>
+            <div class="hero-title">
+                <h2 class="title-main">VISUAL<br><span class="red-text">TASTE</span></h2>
+                <p class="title-sub">SINCE 1958 ORIGINAL RECIPE</p>
+            </div>
+            <img src="https://pngimg.com/uploads/pepperoni/pepperoni_PNG49.png" class="topping pepperoni" alt="topping">
         </section>
 
-        <div class="marquee">
+        <div class="marquee-wrapper">
             <div class="marquee-content">
-                NEW MENU : SUPREME PIZZA • 30% OFF ON WEEKENDS • PIZZA HUT ORIGINAL • 
-                NEW MENU : SUPREME PIZZA • 30% OFF ON WEEKENDS • PIZZA HUT ORIGINAL • 
+                NEW MENU : BLACK LABEL TRUFFLE • 30% OFF EVERY FRIDAY • PREMIUM PIZZA HUT •&nbsp;
+                NEW MENU : BLACK LABEL TRUFFLE • 30% OFF EVERY FRIDAY • PREMIUM PIZZA HUT •&nbsp;
             </div>
         </div>
 
-        <section class="new-menu">
-            <h3 class="section-title">NEW DISHES</h3>
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide"><div class="card">Menu 01</div></div>
-                    <div class="swiper-slide"><div class="card">Menu 02</div></div>
-                    <div class="swiper-slide"><div class="card">Menu 03</div></div>
-                </div>
+        <section class="feature scroll-ani">
+            <div class="feature-img">
+                <img src="https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?q=80&w=1000" alt="process">
+            </div>
+            <div class="feature-text">
+                <span class="badge">THE CRAFT</span>
+                <h2>HAND<br>CRAFTED<br>MASTER.</h2>
+                <p>단순한 음식을 넘어 시각적 즐거움을 선사합니다.<br>피자헛만의 프리미엄 퀄리티를 경험하세요.</p>
+                <a href="#" class="more-link">VIEW PROCESS +</a>
             </div>
         </section>
 
-        <section class="brand-film">
-            <div class="video-placeholder">
-                <p>VIDEO BACKGROUND AREA</p>
+        <section class="events scroll-ani">
+            <h3 class="section-title">EXCLUSIVE EVENTS</h3>
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1571407970349-bc81e7e96d47?q=80&w=800" alt="event"></div>
+                    <div class="card-info">
+                        <span class="date">2026.02.10 - 03.10</span>
+                        <h4>MIDNIGHT CHEESE</h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-img"><img src="https://images.unsplash.com/photo-1534308983496-4fabb1a015ee?q=80&w=800" alt="event"></div>
+                    <div class="card-info">
+                        <span class="date">ONGOING</span>
+                        <h4>BLACK LABEL X TRUFFLE</h4>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

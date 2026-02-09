@@ -1,59 +1,74 @@
 :root {
-    --primary-red: #E31837;
-    --bg-dark: #111111;
-    --text-white: #ffffff;
+    --red: #ee1c25;
+    --black: #050505;
+    --gray: #1a1a1a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { 
-    background-color: var(--bg-dark); 
-    color: var(--text-white); 
+body {
+    background-color: var(--black);
+    color: #fff;
     font-family: 'SUIT', sans-serif;
     overflow-x: hidden;
 }
 
-/* Intro */
-.intro-overlay {
+/* Typography */
+h1, h2, h3, h4, .logo, .title-main {
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+}
+
+/* 01. Intro */
+.intro-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: var(--primary-red);
-    display: flex; justify-content: center; align-items: center;
-    z-index: 1000;
+    background: #000; z-index: 1000;
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
 }
-.intro-text { font-size: 8vw; font-weight: 900; color: white; letter-spacing: -2px; }
+.intro-word { font-size: 10vw; line-height: 0.9; color: var(--red); opacity: 0; transform: translateY(50px); }
 
-/* Header */
-.header {
-    position: fixed; top: 0; width: 100%; height: 80px;
+/* 02. Header */
+header {
+    position: fixed; top: 0; width: 100%; padding: 30px 60px;
     display: flex; justify-content: space-between; align-items: center;
-    padding: 0 50px; z-index: 100; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);
+    z-index: 100; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
 }
-.logo { font-size: 1.5rem; font-weight: 900; color: var(--primary-red); }
-.nav a { color: white; text-decoration: none; margin: 0 20px; font-weight: 600; font-size: 0.9rem; }
-.order-btn { background: var(--primary-red); color: white; border: none; padding: 10px 25px; font-weight: 700; cursor: pointer; }
+.logo { font-size: 2rem; color: #fff; letter-spacing: -1px; }
+nav a { color: #aaa; text-decoration: none; margin: 0 20px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
+nav a:hover { color: var(--red); }
+.btn-order { background: var(--red); color: #fff; border: none; padding: 12px 25px; font-weight: 900; font-style: italic; cursor: pointer; }
 
-/* Main Visual */
-.main-visual {
-    height: 120vh; position: relative; display: flex; justify-content: center; align-items: center;
-}
-.visual-bg { position: absolute; width: 100%; height: 100%; z-index: -1; filter: brightness(0.4); overflow: hidden; }
-.visual-bg img { width: 100%; height: 100%; object-fit: cover; }
-.main-title { font-size: 10vw; line-height: 0.9; text-align: center; font-weight: 900; }
-.main-title span { color: var(--primary-red); }
+/* 03. Hero */
+.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; overflow: hidden; }
+.hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; filter: brightness(0.4); }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.title-main { font-size: 10vw; line-height: 0.85; }
+.red-text { color: var(--red); }
+.title-sub { font-weight: 700; color: rgba(255,255,255,0.4); margin-top: 20px; letter-spacing: 5px; }
+.topping { position: absolute; width: 150px; right: 15%; top: 20%; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
 
-/* Marquee */
-.marquee { background: var(--primary-red); padding: 15px 0; overflow: hidden; white-space: nowrap; }
-.marquee-content { display: inline-block; font-size: 1.2rem; font-weight: 800; animation: marquee 20s linear infinite; }
+/* 04. Marquee */
+.marquee-wrapper { background: var(--red); padding: 20px 0; transform: rotate(-1deg) scale(1.05); z-index: 10; position: relative; }
+.marquee-content { white-space: nowrap; font-size: 2rem; font-weight: 900; font-style: italic; color: #fff; display: flex; }
 
-@keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-}
+/* 05. Feature */
+.feature { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
+.feature-img img { width: 100%; border-radius: 20px; filter: grayscale(1); transition: 0.5s; }
+.feature-img:hover img { filter: grayscale(0); transform: scale(1.02); }
+.badge { color: var(--red); font-weight: 900; font-style: italic; letter-spacing: 2px; display: block; margin-bottom: 20px; }
+.feature-text h2 { font-size: 5vw; line-height: 0.9; margin-bottom: 30px; }
+.feature-text p { color: #888; line-height: 1.8; font-size: 1.1rem; }
+.more-link { display: inline-block; margin-top: 40px; color: #fff; font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 5px; }
 
-/* New Menu (Swiper) */
-.new-menu { padding: 100px 50px; }
-.section-title { font-size: 3rem; margin-bottom: 50px; }
-.swiper-slide { width: 300px; height: 400px; background: #222; border-radius: 20px; display: flex; justify-content: center; align-items: center; font-size: 1.5rem; font-weight: 700; border: 1px solid #333; transition: 0.3s; }
-.swiper-slide:hover { border-color: var(--primary-red); transform: scale(1.05); }
-
-/* Brand Film */
-.brand-film { height: 80vh; background: #000; display: flex; justify-content: center; align-items: center; }
+/* 06. Events */
+.events { padding: 100px 10%; }
+.section-title { font-size: 4vw; margin-bottom: 60px; text-align: center; }
+.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.card { position: relative; overflow: hidden; border-radius: 20px; background: var(--gray); cursor: pointer; }
+.card-img img { width: 100%; height: 400px; object-fit: cover; opacity: 0.6; transition: 0.5s; }
+.card:hover .card-img img { opacity: 1; transform: scale(1.1); }
+.card-info { padding: 30px; position: absolute; bottom: 0; }
+.card-info h4 { font-size: 2rem; }
+.date { font-size: 0.8rem; color: var(--red); font-weight: 700; margin-bottom: 10px; display: block; }

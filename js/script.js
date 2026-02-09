@@ -1,50 +1,41 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // 1. Intro Reveal Animation
-    const tl = gsap.timeline();
-    tl.from(".intro-text", {
-        scale: 0.5,
-        opacity: 0,
-        duration: 1.5,
-        ease: "power4.out"
-    })
-    .to(".intro-overlay", {
-        yPercent: -100,
-        duration: 1,
-        ease: "power4.inOut",
-        delay: 0.5
-    });
+gsap.registerPlugin(ScrollTrigger);
 
-    // 2. Main Visual Scroll Effect
-    gsap.to(".main-title", {
+// 1. 인트로 애니메이션
+const introTl = gsap.timeline();
+introTl.to(".intro-word", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power4.out" })
+       .to(".intro-screen", { yPercent: -100, duration: 1, ease: "expo.inOut", delay: 0.5 });
+
+// 2. 히어로 섹션 패럴랙스
+gsap.to(".hero-bg img", {
+    scrollTrigger: { trigger: ".hero", start: "top top", scrub: true },
+    y: 200, scale: 1.2
+});
+
+gsap.to(".topping", {
+    scrollTrigger: { trigger: ".hero", start: "top top", scrub: 1 },
+    y: -150, rotate: 45
+});
+
+// 3. 무한 마키(Marquee) 애니메이션
+gsap.to(".marquee-content", {
+    xPercent: -50,
+    duration: 20,
+    repeat: -1,
+    ease: "none"
+});
+
+// 4. 섹션 등장 애니메이션 (기영이 스타일 스크롤 트리거)
+const scrollAnis = document.querySelectorAll('.scroll-ani');
+scrollAnis.forEach(el => {
+    gsap.from(el, {
         scrollTrigger: {
-            trigger: ".main-visual",
-            start: "top top",
-            scrub: 1
+            trigger: el,
+            start: "top 80%",
+            toggleActions: "play none none reverse"
         },
-        y: 200,
-        scale: 0.8,
-        opacity: 0.5
-    });
-
-    // 3. Section Fade-in (기영이 스타일)
-    const sections = document.querySelectorAll("section");
-    sections.forEach(section => {
-        gsap.from(section, {
-            scrollTrigger: {
-                trigger: section,
-                start: "top 80%",
-                toggleActions: "play none none reverse"
-            },
-            y: 50,
-            opacity: 0,
-            duration: 1
-        });
-    });
-
-    // 4. Swiper Initialization
-    new Swiper(".mySwiper", {
-        slidesPerView: "auto",
-        spaceBetween: 30,
-        freeMode: true,
+        opacity: 0,
+        y: 100,
+        duration: 1.2,
+        ease: "power3.out"
     });
 });
