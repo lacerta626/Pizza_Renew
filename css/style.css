@@ -40,6 +40,54 @@ nav a { color: #aaa; text-decoration: none; margin: 0 20px; font-weight: 700; fo
 nav a:hover { color: var(--red); }
 .btn-order { background: var(--red); color: #fff; border: none; padding: 12px 25px; font-weight: 900; font-style: italic; cursor: pointer; }
 
+/* 메인 비주얼 스타일 */
+.main-visual {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #ffeb00; /* 노란 배경 */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-wrap {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    text-align: center;
+}
+
+.text-wrap h2 {
+    font-family: 'Suit', sans-serif; /* 혹은 시안에 맞는 굵은 폰트 */
+    font-size: 8vw;
+    font-weight: 900;
+    color: #ee1c25; /* 피자헛 레드 */
+    line-height: 1.2;
+    white-space: nowrap;
+    text-shadow: 2px 2px 0px #fff;
+}
+
+/* 초기 위치 설정 */
+.txt-left { transform: translateX(-100%); opacity: 0; }
+.txt-right { transform: translateX(100%); opacity: 0; }
+
+.pizza-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* 처음엔 안보임 */
+    z-index: 5;
+    width: 500px; /* 적정 크기 조절 */
+    opacity: 0;
+}
+
+.pizza-center img {
+    width: 100%;
+    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3));
+}
+
 /* 03. Hero */
 .hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; overflow: hidden; }
 .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; filter: brightness(0.4); }
