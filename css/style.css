@@ -1,7 +1,6 @@
 :root {
     --red: #ee1c25;
     --black: #050505;
-    --gray: #1a1a1a;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -12,16 +11,14 @@ body {
     overflow-x: hidden;
 }
 
-/* Typography */
-h1, h2, h3, h4, .logo, .title-main {
+h1, h2, .logo {
     font-family: 'Montserrat', sans-serif;
     font-style: italic;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: -3px;
 }
 
-/* 01. Intro */
+/* 01. 인트로 */
 .intro-screen {
     position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
     background: #000; z-index: 1000;
@@ -29,7 +26,7 @@ h1, h2, h3, h4, .logo, .title-main {
 }
 .intro-word { font-size: 10vw; line-height: 0.9; color: var(--red); opacity: 0; transform: translateY(50px); }
 
-/* 02. Header */
+/* 02. 헤더 */
 header {
     position: fixed; top: 0; width: 100%; padding: 30px 60px;
     display: flex; justify-content: space-between; align-items: center;
@@ -40,83 +37,137 @@ nav a { color: #aaa; text-decoration: none; margin: 0 20px; font-weight: 700; fo
 nav a:hover { color: var(--red); }
 .btn-order { background: var(--red); color: #fff; border: none; padding: 12px 25px; font-weight: 900; font-style: italic; cursor: pointer; }
 
-/* 메인 비주얼 스타일 */
+/* 03. 메인 비주얼 */
 .main-visual {
-    position: relative;
-    height: 100vh;
-    width: 100%;
-    background-color: #ffeb00; /* 노란 배경 */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; height: 100vh; width: 100%;
+    background-color: #ffeb00; overflow: hidden;
+    display: flex; justify-content: center; align-items: center; z-index: 20;
 }
-
-.text-wrap {
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    text-align: center;
-}
-
+.text-wrap { position: relative; z-index: 10; width: 100%; text-align: center; }
 .text-wrap h2 {
-    font-family: 'Suit', sans-serif; /* 혹은 시안에 맞는 굵은 폰트 */
-    font-size: 8vw;
-    font-weight: 900;
-    color: #ee1c25; /* 피자헛 레드 */
-    line-height: 1.2;
-    white-space: nowrap;
-    text-shadow: 2px 2px 0px #fff;
+    font-size: 8vw; color: var(--red); line-height: 1.2;
+    white-space: nowrap; text-shadow: 2px 2px 0px #fff;
+    letter-spacing: -3px;
 }
-
-/* 초기 위치 설정 */
 .txt-left { transform: translateX(-100%); opacity: 0; }
 .txt-right { transform: translateX(100%); opacity: 0; }
 
 .pizza-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0); /* 처음엔 안보임 */
-    z-index: 5;
-    width: 500px; /* 적정 크기 조절 */
-    opacity: 0;
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 5; width: 500px; opacity: 0;
 }
+.pizza-center img { width: 100%; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3)); }
 
-.pizza-center img {
-    width: 100%;
-    filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3));
-}
-
-/* 03. Hero */
-.hero { height: 100vh; position: relative; display: flex; align-items: center; padding: 0 10%; overflow: hidden; }
-.hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; filter: brightness(0.4); }
-.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-.title-main { font-size: 10vw; line-height: 0.85; }
-.red-text { color: var(--red); }
-.title-sub { font-weight: 700; color: rgba(255,255,255,0.4); margin-top: 20px; letter-spacing: 5px; }
-.topping { position: absolute; width: 150px; right: 15%; top: 20%; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5)); }
-
-/* 04. Marquee */
-.marquee-wrapper { background: var(--red); padding: 20px 0; transform: rotate(-1deg) scale(1.05); z-index: 10; position: relative; }
+/* 04. 마키 */
+.marquee-wrapper { background: var(--red); padding: 20px 0; z-index: 10; position: relative; }
 .marquee-content { white-space: nowrap; font-size: 2rem; font-weight: 900; font-style: italic; color: #fff; display: flex; }
 
-/* 05. Feature */
-.feature { padding: 150px 10%; display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; }
-.feature-img img { width: 100%; border-radius: 20px; filter: grayscale(1); transition: 0.5s; }
-.feature-img:hover img { filter: grayscale(0); transform: scale(1.02); }
-.badge { color: var(--red); font-weight: 900; font-style: italic; letter-spacing: 2px; display: block; margin-bottom: 20px; }
-.feature-text h2 { font-size: 5vw; line-height: 0.9; margin-bottom: 30px; }
-.feature-text p { color: #888; line-height: 1.8; font-size: 1.1rem; }
-.more-link { display: inline-block; margin-top: 40px; color: #fff; font-weight: 900; text-decoration: none; border-bottom: 2px solid var(--red); padding-bottom: 5px; }
+/* 05. 영상 섹션 */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* 스크롤 거리를 확보하기 위해 높이를 길게 잡습니다 */
+    background-color: var(--black);
+    z-index: 10;
+}
 
-/* 06. Events */
-.events { padding: 100px 10%; }
-.section-title { font-size: 4vw; margin-bottom: 60px; text-align: center; }
-.card-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-.card { position: relative; overflow: hidden; border-radius: 20px; background: var(--gray); cursor: pointer; }
-.card-img img { width: 100%; height: 400px; object-fit: cover; opacity: 0.6; transition: 0.5s; }
-.card:hover .card-img img { opacity: 1; transform: scale(1.1); }
-.card-info { padding: 30px; position: absolute; bottom: 0; }
-.card-info h4 { font-size: 2rem; }
-.date { font-size: 0.8rem; color: var(--red); font-weight: 700; margin-bottom: 10px; display: block; }
+.video-mask {
+    position: relative; /* 스크롤하는 동안 화면에 고정 */
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* 처음 상태: 화면 중앙에 반지름 0%인 원 (안 보임) 또는 작은 원(10%) */
+    clip-path: circle(10% at 50% 50%); 
+    z-index: 10;
+    will-change: clip-path;
+}
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    /* 영상보다 위에 오도록 z-index 추가 */
+    z-index: 5; 
+}
+
+.video-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translateZ(0);
+}
+
+/* 05. 영상 섹션 텍스트 디테일 스타일 */
+
+.video-text-box {
+    opacity: 0;
+    transform: translateY(50px);
+    pointer-events: none;
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* 상단 작은 제목 (영문/포인트 컬러) */
+.video-text-box .sub-title {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.4em; /* 글자 사이 간격을 넓게 주어 고급스럽게 */
+    color: #ffca2c; /* 피자와 잘 어울리는 골드 옐로우 */
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+/* 중앙 메인 카피 (굵고 강렬하게) */
+.video-text-box .main-title {
+    font-family: 'SUIT', sans-serif; /* 한글은 SUIT 사용 */
+    font-weight: 900;
+    font-size: clamp(2.5rem, 6vw, 4.8rem); /* 화면 크기에 따라 유동적으로 조절 */
+    line-height: 1.25;
+    color: #ffffff;
+    margin-bottom: 30px;
+    letter-spacing: -0.03em; /* 한글은 간격을 살짝 좁히는 게 더 탄탄해 보입니다 */
+    word-break: keep-all; /* 단어 단위로 줄바꿈 */
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 영상 배경 대비 가독성 확보 */
+}
+
+/* 하단 설명 문구 (가늘고 우아하게) */
+.video-text-box .desc-text {
+    font-family: 'SUIT', sans-serif;
+    font-weight: 300; /* 얇은 두께로 메인 타이틀과 대비 */
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85); /* 살짝 투명도를 주어 부드럽게 */
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+}
+
+/* 태블릿/모바일 대응 미세 조정 */
+@media (max-width: 768px) {
+    .video-text-box .sub-title {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    .video-text-box .main-title {
+        margin-bottom: 20px;
+    }
+    .video-text-box .desc-text {
+        br { display: none; } /* 모바일에서는 수동 줄바꿈 무시 */
+    }
+}
