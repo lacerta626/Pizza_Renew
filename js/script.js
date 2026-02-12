@@ -79,6 +79,7 @@ videoTl
         duration: 1,
         ease: "power2.out"
     }, "-=1.0"); // 마스크 확장 중에 텍스트가 서서히 보이게 연결
+    
 gsap.to(".bg-video", {
     scrollTrigger: {
         trigger: ".video-section",

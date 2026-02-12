@@ -158,6 +158,50 @@ nav a:hover { color: var(--red); }
     word-break: keep-all;
 }
 
+/* 카메라 인터페이스 프레임 */
+.video-frame-interface {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 1; /* 처음부터 보이게 설정 */
+}
+
+.frame-dot {
+    position: absolute;
+    transition: none; /* GSAP이 직접 제어하므로 트랜지션 제거 */
+}
+
+/* 초기 위치 설정 */
+.dot01 { top: 40px; left: 40px; }
+.dot02 { top: 40px; right: 40px; }
+.dot03 { bottom: 40px; right: 40px; }
+.dot04 { bottom: 40px; left: 40px; }
+
+/* REC 빨간 점 깜빡임 애니메이션 */
+.rec-blink {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* SVG 스트로크 색상 강제 지정 (필요 시) */
+.frame-dot svg path {
+    stroke: #ffffff;
+}
+.frame-dot svg text {
+    fill: #ffffff;
+}
+
 /* 태블릿/모바일 대응 미세 조정 */
 @media (max-width: 768px) {
     .video-text-box .sub-title {
