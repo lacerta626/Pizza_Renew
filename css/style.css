@@ -1,217 +1,130 @@
-:root {
-    --red: #ee1c25;
-    --black: #050505;
-}
+/* ============================= */
+/* ROOT & RESET */
+/* ============================= */
+:root{--red:#ee1c25;--black:#050505;}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-    background-color: var(--black);
-    color: #fff;
-    font-family: 'SUIT', sans-serif;
-    overflow-x: hidden;
-}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
 
-h1, h2, .logo {
-    font-family: 'Montserrat', sans-serif;
-    font-style: italic;
-    font-weight: 900;
-    text-transform: uppercase;
-}
+body{background-color:var(--black);color:#fff;font-family:'SUIT',sans-serif;overflow-x:hidden;}
+a{text-decoration: none; color: inherit;}
+ul, ol{list-style: none;}
+/* ============================= */
+/* TYPOGRAPHY */
+/* ============================= */
+h1,h2,.logo{font-family:'Montserrat',sans-serif;font-style:italic;font-weight:900;text-transform:uppercase;}
 
-/* 01. 인트로 */
-.intro-screen {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-    background: #000; z-index: 1000;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-}
-.intro-word { font-size: 10vw; line-height: 0.9; color: var(--red); opacity: 0; transform: translateY(50px); }
+.intro-word{font-size:10vw;line-height:.9;color:var(--red);opacity:0;transform:translateY(50px);}
 
-/* 02. 헤더 */
-header {
-    position: fixed; top: 0; width: 100%; padding: 30px 60px;
-    display: flex; justify-content: space-between; align-items: center;
-    z-index: 100; background: linear-gradient(to bottom, rgba(0,0,0,0.8), transparent);
-}
-.logo { font-size: 2rem; color: #fff; letter-spacing: -1px; }
-nav a { color: #aaa; text-decoration: none; margin: 0 20px; font-weight: 700; font-size: 0.9rem; transition: 0.3s; }
-nav a:hover { color: var(--red); }
-.btn-order { background: var(--red); color: #fff; border: none; padding: 12px 25px; font-weight: 900; font-style: italic; cursor: pointer; }
+/* ============================= */
+/* HEADER */
+/* ============================= */
+header{position:fixed;top:0;width:100%;padding:30px 60px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:linear-gradient(to bottom,rgba(0,0,0,.8),transparent);}
 
-/* 03. 메인 비주얼 */
-.main-visual {
-    position: relative; height: 100vh; width: 100%;
-    background-color: #ffeb00; overflow: hidden;
-    display: flex; justify-content: center; align-items: center; z-index: 20;
-}
-.text-wrap { position: relative; z-index: 10; width: 100%; text-align: center; }
-.text-wrap h2 {
-    font-size: 8vw; color: var(--red); line-height: 1.2;
-    white-space: nowrap; text-shadow: 2px 2px 0px #fff;
-    letter-spacing: -3px;
-}
-.txt-left { transform: translateX(-100%); opacity: 0; }
-.txt-right { transform: translateX(100%); opacity: 0; }
+.logo{font-size:2rem;color:#fff;letter-spacing:-1px;}
 
-.pizza-center {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    z-index: 5; width: 500px; opacity: 0;
-}
-.pizza-center img { width: 100%; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.3)); }
+nav a{color:#aaa;text-decoration:none;margin:0 20px;font-weight:700;font-size:.9rem;transition:.3s;}
 
-/* 04. 마키 */
-.marquee-wrapper { background: var(--red); padding: 20px 0; z-index: 10; position: relative; }
-.marquee-content { white-space: nowrap; font-size: 2rem; font-weight: 900; font-style: italic; color: #fff; display: flex; }
+nav a:hover{color:var(--red);}
 
-/* 05. 영상 섹션 */
-.video-section {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* 스크롤 거리를 확보하기 위해 높이를 길게 잡습니다 */
-    background-color: var(--black);
-    z-index: 10;
-}
+.btn-order{background:var(--red);color:#fff;border:none;padding:12px 25px;font-weight:900;font-style:italic;cursor:pointer;}
 
-.video-mask {
-    position: relative; /* 스크롤하는 동안 화면에 고정 */
-    top: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    /* 처음 상태: 화면 중앙에 반지름 0%인 원 (안 보임) 또는 작은 원(10%) */
-    clip-path: circle(10% at 50% 50%); 
-    z-index: 10;
-    will-change: clip-path;
-}
-.video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #fff;
-    /* 영상보다 위에 오도록 z-index 추가 */
-    z-index: 5; 
-}
+.gnb{display:flex;gap:0;}
+.gnb>li{position:relative;padding:0 25px;}
+.gnb>li>a{display:block;padding:10px 0;font-size:0.9rem;font-weight:700;color:#fff;text-transform:uppercase;transition:0.3s;}
+.submenu{position:absolute;top:100%;left:50%;transform:translateX(-50%) translateY(10px);width:180px;background:rgba(0,0,0,0.9);padding:20px 0;opacity:0;visibility:hidden;transition:0.4s ease;border-top:2px solid var(--red);text-align:center;}
+.submenu li a{display:block;padding:8px 20px;color:#aaa;font-size:0.85rem;font-weight:500;transition:0.3s;text-transform:uppercase;}
+.gnb>li:hover>a{color:var(--red);}
+.submenu li a:hover{color:#fff;background:rgba(238,28,37,0.1);}
+.gnb>li:hover .submenu{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
 
-.video-container {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
 
-.bg-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translateZ(0);
-}
+/* ============================= */
+/* INTRO */
+/* ============================= */
+.intro-screen{position:fixed;top:0;left:0;width:100%;height:100vh;background:#000;z-index:1000;display:flex;flex-direction:column;justify-content:center;align-items:center;}
 
-/* 05. 영상 섹션 텍스트 디테일 스타일 */
+/* ============================= */
+/* MAIN VISUAL */
+/* ============================= */
+.main-visual{position:relative;height:100vh;width:100%;background-color:#ffeb00;overflow:hidden;display:flex;justify-content:center;align-items:center;z-index:20;}
 
-.video-text-box {
-    opacity: 0;
-    transform: translateY(50px);
-    pointer-events: none;
-    text-align: center;
-    width: 100%;
-    padding: 0 20px;
-}
+.main-container{position:relative;width:100%;max-width:2560px;height:100%;}
 
-/* 상단 작은 제목 (영문/포인트 컬러) */
-.video-text-box .sub-title {
-    display: block;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    letter-spacing: 0.4em; /* 글자 사이 간격을 넓게 주어 고급스럽게 */
-    color: #ffca2c; /* 피자와 잘 어울리는 골드 옐로우 */
-    margin-bottom: 24px;
-    text-transform: uppercase;
-}
+.text-wrap{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:5;text-align:right;}
 
-/* 중앙 메인 카피 (굵고 강렬하게) */
-.video-text-box .main-title {
-    font-family: 'SUIT', sans-serif; /* 한글은 SUIT 사용 */
-    font-weight: 900;
-    font-size: clamp(2.5rem, 6vw, 4.8rem); /* 화면 크기에 따라 유동적으로 조절 */
-    line-height: 1.25;
-    color: #ffffff;
-    margin-bottom: 30px;
-    letter-spacing: -0.03em; /* 한글은 간격을 살짝 좁히는 게 더 탄탄해 보입니다 */
-    word-break: keep-all; /* 단어 단위로 줄바꿈 */
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* 영상 배경 대비 가독성 확보 */
-}
+.text-wrap h2{font-size:8.5vw;color:var(--red);line-height:1.1;white-space:nowrap;font-weight:900;letter-spacing:-5px;text-shadow:4px 4px 0 #fff;}
 
-/* 하단 설명 문구 (가늘고 우아하게) */
-.video-text-box .desc-text {
-    font-family: 'SUIT', sans-serif;
-    font-weight: 300; /* 얇은 두께로 메인 타이틀과 대비 */
-    font-size: clamp(1rem, 1.5vw, 1.25rem);
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.85); /* 살짝 투명도를 주어 부드럽게 */
-    letter-spacing: -0.01em;
-    word-break: keep-all;
-}
+.txt-left{transform:translateX(-150%);opacity:0;display:block;}
 
-/* 카메라 인터페이스 프레임 */
-.video-frame-interface {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-    box-sizing: border-box;
-    z-index: 3;
-    pointer-events: none;
-    opacity: 1; /* 처음부터 보이게 설정 */
-}
+.txt-right{transform:translateX(150%);opacity:0;display:block;}
 
-.frame-dot {
-    position: absolute;
-    transition: none; /* GSAP이 직접 제어하므로 트랜지션 제거 */
-}
+.pizza-center{position:absolute;left:5%;top:50%;transform:translateY(-50%) scale(0);z-index:10;width:600px;opacity:0;}
 
-/* 초기 위치 설정 */
-.dot01 { top: 40px; left: 40px; }
-.dot02 { top: 40px; right: 40px; }
-.dot03 { bottom: 40px; right: 40px; }
-.dot04 { bottom: 40px; left: 40px; }
+.main-pizza{width:150%;filter:drop-shadow(0 30px 50px rgba(0,0,0,.2));}
 
-/* REC 빨간 점 깜빡임 애니메이션 */
-.rec-blink {
-    animation: blink 1s infinite;
-}
+.pepperoni-wrap{position:absolute;bottom:-20px;left:-30px;width:300px;}
 
-@keyframes blink {
-    0% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 1; }
-}
+.pep{position:absolute;filter:drop-shadow(10px 20px 15px rgba(0,0,0,.2));}
 
-/* SVG 스트로크 색상 강제 지정 (필요 시) */
-.frame-dot svg path {
-    stroke: #ffffff;
-}
-.frame-dot svg text {
-    fill: #ffffff;
-}
+.pep01{width:160px;bottom:0;left:0;z-index:13;}
+.pep02{width:120px;bottom:80px;left:-20px;z-index:11;}
+.pep03{width:140px;bottom:-30px;left:100px;z-index:12;}
 
-/* 태블릿/모바일 대응 미세 조정 */
-@media (max-width: 768px) {
-    .video-text-box .sub-title {
-        font-size: 0.9rem;
-        margin-bottom: 15px;
-    }
-    .video-text-box .main-title {
-        margin-bottom: 20px;
-    }
-    .video-text-box .desc-text {
-        br { display: none; } /* 모바일에서는 수동 줄바꿈 무시 */
-    }
+/* ============================= */
+/* MARQUEE */
+/* ============================= */
+.marquee-wrapper{background:var(--red);padding:20px 0;z-index:10;position:relative;}
+
+.marquee-content{white-space:nowrap;font-size:2rem;font-weight:900;font-style:italic;color:#fff;display:flex;}
+
+/* ============================= */
+/* VIDEO */
+/* ============================= */
+.video-section{position:relative;width:100%;height:100vh;background-color:var(--black);z-index:10;}
+
+.video-mask{position:relative;top:0;width:100%;height:100vh;overflow:hidden;clip-path:circle(10% at 50% 50%);z-index:10;will-change:clip-path;}
+
+.video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;z-index:5;}
+
+.video-container{width:100%;height:100vh;position:relative;}
+
+.bg-video{width:100%;height:100%;object-fit:cover;transform:translateZ(0);}
+
+/* ============================= */
+/* VIDEO TEXT */
+/* ============================= */
+.video-text-box{opacity:0;transform:translateY(50px);pointer-events:none;text-align:center;width:100%;padding:0 20px;}
+
+.sub-title{display:block;font-family:'Montserrat',sans-serif;font-size:1.1rem;font-weight:700;letter-spacing:.4em;color:#ffca2c;margin-bottom:24px;text-transform:uppercase;}
+
+.main-title{font-family:'SUIT',sans-serif;font-weight:900;font-size:clamp(2.5rem,6vw,4.8rem);line-height:1.25;color:#fff;margin-bottom:30px;letter-spacing:-.03em;word-break:keep-all;text-shadow:0 4px 20px rgba(0,0,0,.4);}
+
+.desc-text{font-family:'SUIT',sans-serif;font-weight:300;font-size:clamp(1rem,1.5vw,1.25rem);line-height:1.8;color:rgba(255,255,255,.85);letter-spacing:-.01em;word-break:keep-all;}
+
+/* ============================= */
+/* FRAME */
+/* ============================= */
+.video-frame-interface{position:absolute;top:0;left:0;width:100%;height:100%;padding:40px;box-sizing:border-box;z-index:3;pointer-events:none;opacity:1;}
+
+.frame-dot{position:absolute;transition:none;}
+
+.dot01{top:40px;left:40px;}
+.dot02{top:40px;right:40px;}
+.dot03{bottom:40px;right:40px;}
+.dot04{bottom:40px;left:40px;}
+
+.frame-dot svg path{stroke:#fff;}
+.frame-dot svg text{fill:#fff;}
+
+.rec-blink{animation:blink 1s infinite;}
+
+@keyframes blink{0%{opacity:1;}50%{opacity:0;}100%{opacity:1;}}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+@media(max-width:768px){
+.sub-title{font-size:.9rem;margin-bottom:15px;}
+.main-title{margin-bottom:20px;}
+.desc-text br{display:none;}
 }
