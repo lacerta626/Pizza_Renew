@@ -37,7 +37,7 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 /* ============================= */
 /* MAIN VISUAL & MARQUEE */
 /* ============================= */
-.main-visual { position: relative; height: 100vh; width: 100%; background-color: var(--black); overflow: hidden; display: flex; justify-content: center; align-items: center; z-index: 20; }
+.main-visual { position: relative; height: 100vh; width: 100%; background-color: var(--black); overflow: hidden; display: flex; justify-content: center; align-items: center; z-index: 20;background:url(../images/main_background.png) no-repeat center center; background-size: cover; }
 .main-container { position: relative; width: 100%; max-width: 2560px; height: 100%; }
 .img-wrap { position: absolute; right: 25%; top: 50%; transform: translateY(-50%); z-index: 5; text-align: right; }
 .img-left, .img-right { opacity: 0; display: block; }
@@ -46,8 +46,6 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 .img-right { transform: translateX(150%); padding-top: 50px;}
 .pizza-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0); z-index: 10; width: 50%; opacity: 0; }
 .main-pizza { width: 80%; }
-.pepperoni-wrap { position: absolute; bottom: 0; left: 0; width: 200px; }
-.pep { position: absolute; width: 100px; filter: drop-shadow(10px 20px 15px rgba(0,0,0,.2)); }
 .marquee-wrapper { background: var(--red); padding: 20px 0; z-index: 10; position: relative; overflow: hidden; }
 .marquee-content { white-space: nowrap; font-size: 2rem; font-weight: 900; font-style: italic; color: #fff; display: flex; }
 
@@ -61,8 +59,8 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 .video-container { width: 100%; height: 100vh; }
 .bg-video { width: 100%; height: 100%; object-fit: cover; }
 .video-text-box { opacity: 0; transform: translateY(50px); text-align: center; }
-.main-title { font-weight: 900; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.25; margin-bottom: 30px; }
-
+.main-title { font-weight: 400; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.25; margin-bottom: 30px;font-family: 'KblJumpExtended'; }
+.desc-text { font-size: clamp(1rem, 3vw, 1.5rem); line-height: 1.2; font-weight: 200; color: #ffffff; font-family: 'GangwonEducationTteontteon'; letter-spacing: -0.05em;}
 .video-frame-interface{position:absolute;top:0;left:0;width:100%;height:100%;padding:40px;box-sizing:border-box;z-index:3;pointer-events:none;opacity:1;}
 
 .frame-dot{position:absolute;transition:none;}
@@ -72,11 +70,11 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 .dot03{bottom:40px;right:40px;}
 .dot04{bottom:40px;left:40px;}
 
-.scroll-section{background: url(../images/Pizza_cheese.png) no-repeat center center; }
-.fill-text { font-family: 'KerisKedyuche';font-size: 5rem;  font-weight: bold;  color: rgba(255, 255, 255, 0.2); /* 기본 회색 (흰색의 투명도 조절) */  background: linear-gradient(to right, white, white) no-repeat;  background-size: 0% 100%; /* 처음에는 흰색 배경이 0% 상태 */  -webkit-background-clip: text; /* 배경이 글자 안으로만 보이게 함 */  background-clip: text;  display: inline;
-}
+.scroll-section{background: url(../images/Pizza_cheese2.png) no-repeat center center; }
+.text-container{text-align: center;}
+.fill-text { display: block;font-family: 'KblJumpExtended';font-size: 7rem; font-weight: 500;color: rgba(255, 255, 255, 0.2); /* 기본 회색 (흰색의 투명도 조절) */  background: linear-gradient(to right, white, white) no-repeat;  background-size: 0% 00%; /* 처음에는 흰색 배경이 0% 상태 */  -webkit-background-clip: text; /* 배경이 글자 안으로만 보이게 함 */  background-clip: text;transform: translateY(-200%);line-height: 1.2;}
 
-.scroll-section {  height: 200vh; /* 스크롤 여유 공간 */  display: flex;  justify-content: center;  align-items: center;  background-color: #000; /* 어두운 배경에서 더 잘 보여요 */}
+.scroll-section {  height: 300vh;display: flex;  justify-content: center;  align-items: center;  background-color: #000; background-size: cover;}
 
 /* ============================= */
 /* INTERACTIVE MENU (Optimized) */

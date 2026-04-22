@@ -31,14 +31,15 @@ videoTl.to(".video-mask", { clipPath: "circle(100% at 50% 50%)", ease: "none", d
     .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
 
 gsap.to(".fill-text", {
-    backgroundSize: "100% 100%", // 배경을 100%까지 채움
+    backgroundSize: "100% 100%", 
     ease: "none",
     scrollTrigger: {
-        trigger: ".fill-text", // 애니메이션 시작 기준
-        start: "top 80%",      // 화면의 80% 지점에 도달하면 시작
-        end: "top 20%",        // 화면의 20% 지점까지 오면 끝
-        scrub: true,           // 스크롤 속도에 맞춰 애니메이션 진행 (중요!)
-    }
+        trigger: ".text-container", // 개별 글자가 아닌 컨테이너 기준
+        start: "top 60%",           // 컨테이너가 화면 60% 높이에 오면 시작
+        end: "bottom 80%",          // 컨테이너 끝이 화면 40% 높이에 오면 종료
+        scrub: 1,                   // 스크롤과 동기화 (1은 부드러운 추적)
+    },
+    stagger: 1 // 🌟 이 값이 줄 간의 간격을 결정합니다. (순차적 실행)
 });
 
 /* ============================= */
