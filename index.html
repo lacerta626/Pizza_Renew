@@ -11,10 +11,14 @@
     <script
         src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js)"></script>
     <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- CSS Link -->
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -165,22 +169,41 @@
             </div>
         </section>
         <!-- 6. Interactive Menu Section (New Added) -->
-        <div class="menu-selection-wrapper">
-            <section class="pizza-menu-sticky">
-                <div class="bg-glow" id="bgGlow"></div>
-                <div class="main-container">
-                    <!-- Info Layer (Pizza Right Side) -->
-                    <div class="info-layer" id="infoLayer">
-                        <div class="menu-text-wrap">
-                            <h2 class="menu-pizza-name" id="pName">PREMIUM</h2>
-                        </div>
-                        <p class="menu-pizza-price" id="pPrice">SELECT YOUR TASTE</p>
+        <div class="swiper pizza-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="pizza-img-box">
+                        <img src="images/main_pizza.png" alt="피자1">
                     </div>
-                    <!-- Rotating Wheel -->
-                    <div class="pizza-wheel" id="pizzaWheel"></div>
+                    <div class="pizza-info">
+                        <h3>콤비네이션 피자</h3>
+                    </div>
                 </div>
-                <div class="nav-indicator" id="indicator"></div>
-            </section>
+                <div class="swiper-slide">
+                    <div class="pizza-img-box">
+                        <img src="images/고르곤졸라.png" alt="피자2">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>치즈 피자</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pizza-img-box">
+                        <img src="images/새우피자.png" alt="피자2">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>슈퍼쉬림프 피자</h3>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="pizza-img-box">
+                        <img src="images/스테이크피자.png" alt="피자2">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>트러플스테이크 피자</h3>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <!-- 7. Premium Footer Section -->
