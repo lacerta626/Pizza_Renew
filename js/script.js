@@ -5,16 +5,13 @@ gsap.registerPlugin(ScrollTrigger);
 /* ============================= */
 const introTl = gsap.timeline();
 introTl.to(".intro-word", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power4.out" })
-       .to(".intro-screen", { yPercent: -100, duration: 1.2, ease: "expo.inOut", delay: 0.5 })
-       .to(".txt-left", { x: 0, opacity: 1, duration: 1.4, ease: "expo.out" }, "-=0.2")
-       .to(".txt-right", { x: 0, opacity: 1, duration: 2.3, ease: "expo.out" }, "-=1.0")
-       .to(".pizza-center", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.5)" }, "-=1.0");
+    .to(".intro-screen", { yPercent: -100, duration: 1.2, ease: "expo.inOut", delay: 0.5 })
+    .to(".img-left", { x: 0, opacity: 1, duration: 1.4, ease: "expo.out" }, "-=0.2")
+    .to(".img-right", { x: 0, opacity: 1, duration: 2.3, ease: "expo.out" }, "-=1.0")
+    .to(".pizza-center", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.5)" }, "-=1.0");
 
 // 피자 회전 및 페퍼로니 애니메이션
 gsap.to(".main-pizza", { rotate: 360, duration: 120, repeat: -1, ease: "none" });
-gsap.utils.toArray(".pep").forEach((pep, i) => {
-    gsap.to(pep, { y: -30, rotate: i % 2 === 0 ? 15 : -15, duration: 2.5 + i, repeat: -1, yoyo: true, ease: "sine.inOut" });
-});
 
 /* ============================= */
 /* 2. MARQUEE & VIDEO MASK */
@@ -31,7 +28,18 @@ const videoTl = gsap.timeline({
     }
 });
 videoTl.to(".video-mask", { clipPath: "circle(100% at 50% 50%)", ease: "none", duration: 2 })
-       .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
+    .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
+
+gsap.to(".fill-text", {
+    backgroundSize: "100% 100%", // 배경을 100%까지 채움
+    ease: "none",
+    scrollTrigger: {
+        trigger: ".fill-text", // 애니메이션 시작 기준
+        start: "top 80%",      // 화면의 80% 지점에 도달하면 시작
+        end: "top 20%",        // 화면의 20% 지점까지 오면 끝
+        scrub: true,           // 스크롤 속도에 맞춰 애니메이션 진행 (중요!)
+    }
+});
 
 /* ============================= */
 /* 3. INTERACTIVE PIZZA MENU */
@@ -105,7 +113,7 @@ function updateMenu(progress) {
         // 텍스트 & 배경 정보 업데이트
         const infoLayer = document.getElementById('infoLayer');
         infoLayer.classList.remove('active-info');
-        
+
         setTimeout(() => {
             document.getElementById('pName').innerText = data.name;
             document.getElementById('pPrice').innerText = data.price;
@@ -115,7 +123,7 @@ function updateMenu(progress) {
 
         // 인디케이터 & 조각 돌출 효과
         dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIdx));
-        
+
         slices.forEach((slice, i) => {
             const angleRad = (i * angleStep) * (Math.PI / 180);
             if (i === currentIdx) {
@@ -150,3 +158,5 @@ gsap.from(".premium-footer > *", {
     stagger: 0.2,
     ease: "power2.out"
 });
+
+

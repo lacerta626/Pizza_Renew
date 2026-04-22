@@ -37,14 +37,14 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 /* ============================= */
 /* MAIN VISUAL & MARQUEE */
 /* ============================= */
-.main-visual { position: relative; height: 100vh; width: 100%; background-color: var(--yellow); overflow: hidden; display: flex; justify-content: center; align-items: center; z-index: 20; }
+.main-visual { position: relative; height: 100vh; width: 100%; background-color: var(--black); overflow: hidden; display: flex; justify-content: center; align-items: center; z-index: 20; }
 .main-container { position: relative; width: 100%; max-width: 2560px; height: 100%; }
-.text-wrap { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); z-index: 5; text-align: right; }
-.text-wrap h2 { font-size: 8.5vw; color: var(--red); line-height: 1.1; white-space: nowrap; font-weight: 900; letter-spacing: -5px; text-shadow: 4px 4px 0 #fff; }
-.txt-left, .txt-right { opacity: 0; display: block; }
-.txt-left { transform: translateX(-150%); }
-.txt-right { transform: translateX(150%); }
-.pizza-center { position: absolute; left: 5%; top: 50%; transform: translateY(-50%) scale(0); z-index: 10; width: 50%; opacity: 0; }
+.img-wrap { position: absolute; right: 25%; top: 50%; transform: translateY(-50%); z-index: 5; text-align: right; }
+.img-left, .img-right { opacity: 0; display: block; }
+.img-left img, .img-right img { width: 130%; }
+.img-left { transform: translateX(-150%); }
+.img-right { transform: translateX(150%); padding-top: 50px;}
+.pizza-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0); z-index: 10; width: 50%; opacity: 0; }
 .main-pizza { width: 80%; }
 .pepperoni-wrap { position: absolute; bottom: 0; left: 0; width: 200px; }
 .pep { position: absolute; width: 100px; filter: drop-shadow(10px 20px 15px rgba(0,0,0,.2)); }
@@ -72,7 +72,11 @@ header { position: fixed; top: 0; width: 100%; padding: 30px 60px; display: flex
 .dot03{bottom:40px;right:40px;}
 .dot04{bottom:40px;left:40px;}
 
+.scroll-section{background: url(../images/Pizza_cheese.png) no-repeat center center; }
+.fill-text { font-family: 'KerisKedyuche';font-size: 5rem;  font-weight: bold;  color: rgba(255, 255, 255, 0.2); /* 기본 회색 (흰색의 투명도 조절) */  background: linear-gradient(to right, white, white) no-repeat;  background-size: 0% 100%; /* 처음에는 흰색 배경이 0% 상태 */  -webkit-background-clip: text; /* 배경이 글자 안으로만 보이게 함 */  background-clip: text;  display: inline;
+}
 
+.scroll-section {  height: 200vh; /* 스크롤 여유 공간 */  display: flex;  justify-content: center;  align-items: center;  background-color: #000; /* 어두운 배경에서 더 잘 보여요 */}
 
 /* ============================= */
 /* INTERACTIVE MENU (Optimized) */
