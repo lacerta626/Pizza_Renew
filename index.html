@@ -93,7 +93,9 @@
 
                 <div class="pizza-center">
                     <img src="images/main_pizza.png" alt="Pizza" class="main-pizza">
+                    <div class="new-badge">NEW</div>
                 </div>
+
             </div>
         </section>
         <div class="marquee-wrapper">
@@ -161,6 +163,7 @@
                 </div>
             </div>
         </section>
+
         <section class="scroll-section">
             <div class="text-container">
                 <h2 class="fill-text">이전과는 다른</h2>
@@ -168,43 +171,188 @@
                 <h2 class="fill-text">느껴보세요</h2>
             </div>
         </section>
-        <!-- 6. Interactive Menu Section (New Added) -->
-        <div class="swiper pizza-slider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="pizza-img-box">
-                        <img src="images/main_pizza.png" alt="피자1">
-                    </div>
-                    <div class="pizza-info">
-                        <h3>콤비네이션 피자</h3>
-                    </div>
+        <!-- Rolling Banner Section -->
+        <div class="txt-rolling-section">
+            <div class="txt-rolling rolling-top">
+                <div class="rolling-track">
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
                 </div>
-                <div class="swiper-slide">
-                    <div class="pizza-img-box">
-                        <img src="images/고르곤졸라.png" alt="피자2">
-                    </div>
-                    <div class="pizza-info">
-                        <h3>치즈 피자</h3>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="pizza-img-box">
-                        <img src="images/새우피자.png" alt="피자2">
-                    </div>
-                    <div class="pizza-info">
-                        <h3>슈퍼쉬림프 피자</h3>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="pizza-img-box">
-                        <img src="images/스테이크피자.png" alt="피자2">
-                    </div>
-                    <div class="pizza-info">
-                        <h3>트러플스테이크 피자</h3>
-                    </div>
+            </div>
+            <div class="txt-rolling rolling-bottom">
+                <div class="rolling-track reverse">
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
+                    <span class="roll-item">3X 한근 반근 치즈페스타 •</span>
                 </div>
             </div>
         </div>
+
+
+        <!-- 6. Interactive Menu Section (New Added) -->
+        <section class="pizza-menu-section">
+            <span class="section-label">Best Menu</span>
+            <h2 class="section-title">인기 메뉴</h2>
+
+            <div class="pizza-stage">
+                <div class="pizza-text-layer">
+                    <div class="txt-container d-flex">
+                        <div class="menu-tit">
+                            <p id="target-name">COMBINATION</p>
+                            <p class="hide" id="target-name-hide1">COMBINATION</p>
+                            <p class="hide" id="target-name-hide2">COMBINATION</p>
+                        </div>
+                        <div class="menu-desc" id="target-desc">
+                            다양한 토핑이 어우러진 피자헛의 시그니처 메뉴
+                        </div>
+                    </div>
+                </div>
+
+                <button class="pizza-prev">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                </button>
+
+                <div class="swiper pizza-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide" data-name="COMBINATION" data-desc="다양한 토핑이 어우러진 피자헛의 시그니처 메뉴">
+                            <div class="pizza-img-box">
+                                <img src="images/main_pizza.png" alt="콤비네이션 피자">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-name="GORGONZOLA" data-desc="진한 치즈의 풍미와 달콤한 꿀의 완벽한 조화">
+                            <div class="pizza-img-box">
+                                <img src="images/고르곤졸라.png" alt="고르곤졸라 피자">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-name="SUPER SHRIMP" data-desc="탱글탱글한 통새우가 입안 가득 터지는 풍부한 식감">
+                            <div class="pizza-img-box">
+                                <img src="images/새우피자.png" alt="슈퍼쉬림프 피자">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-name="TRUFFLE STEAK" data-desc="고급스러운 트러플 향과 육즙 가득한 스테이크의 만남">
+                            <div class="pizza-img-box">
+                                <img src="images/스테이크피자.png" alt="트러플스테이크 피자">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-name="POTATO PIZZA" data-desc="담백한 감자와 고소한 베이컨이 어우러진 클래식한 맛">
+                            <div class="pizza-img-box">
+                                <img src="images/potato.png" alt="포테이토 피자">
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide" data-name="PEPPERONI" data-desc="짭짤한 페퍼로니와 치즈의 풍미가 극대화된 정통 피자">
+                            <div class="pizza-img-box">
+                                <img src="images/peperroni.png" alt="페퍼로니 피자">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="pizza-next">
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <section class="m_pizza-menu-section">
+            <span class="section-label">Best Menu</span>
+            <h2 class="section-title">인기 메뉴</h2>
+
+            <div class="pizza-stage">
+                <!-- 왼쪽 화살표 -->
+                <button class="m-pizza-prev pizza-prev">
+                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+
+                <div class="swiper m-pizza-slider">
+                    <div class="swiper-wrapper">
+
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/main_pizza.png" alt="콤비네이션 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>콤비네이션 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/고르곤졸라.png" alt="고르곤졸라 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>고르곤졸라 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/새우피자.png" alt="슈퍼쉬림프 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>슈퍼쉬림프 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/스테이크피자.png" alt="트러플스테이크 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>트러플스테이크 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/potato.png" alt="감자 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>포테이토 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="pizza-img-box">
+                                <img src="images/peperroni.png" alt="페퍼로니 피자">
+                            </div>
+                            <div class="pizza-info">
+                                <h3>페퍼로니 피자</h3>
+                                <a href="#" class="pizza-more-btn">MORE</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- /swiper -->
+
+                <!-- 오른쪽 화살표 -->
+                <button class="m-pizza-next pizza-next">
+                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div><!-- /pizza-stage -->
+
+            <!-- 페이지네이션 -->
+            <div class="m-pizza-pagination pizza-pagination"></div>
+
+        </section>
     </main>
     <!-- 7. Premium Footer Section -->
     <footer class="premium-footer">
