@@ -11,6 +11,7 @@
     <script
         src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js)"></script>
     <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -82,7 +83,61 @@
             <button class="btn-order">ORDER NOW</button>
         </div>
     </header>
+    <div class="m_header_wrapper">
+        <header class="m_header">
+            <div class="logo">PIZZA HUT</div>
+            <div class="hamburger">
+                <span></span><span></span><span></span>
+            </div>
+        </header>
 
+        <aside class="m_gnb_area">
+            <div class="m_close">×</div>
+            <ul class="m_gnb">
+            <li>
+                <a href="#" class="depth1">MENU</a>
+                <ul class="m_submenu">
+                    <li><a href="#">New & Best</a></li>
+                    <li><a href="#">Pizza</a></li>
+                    <li><a href="#">Sides</a></li>
+                    <li><a href="#">Drinks</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="depth1">EVENT</a>
+                <ul class="m_submenu">
+                    <li><a href="#">Promotion</a></li>
+                    <li><a href="#">Membership</a></li>
+                    <li><a href="#">Partnership</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="depth1">STORE</a>
+                <ul class="m_submenu">
+                    <li><a href="#">Find Store</a></li>
+                    <li><a href="#">Order Status</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="depth1">BRAND</a>
+                <ul class="m_submenu">
+                    <li><a href="#">HERITAGE</a></li>
+                    <li><a href="#">INGREDIENTS</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="depth1">SOCIAL</a>
+                <ul class="m_submenu">
+                    <li><a href="#">TRENDING NOW</a></li>
+                    <li><a href="#">COLLABO</a></li>
+                    <li><a href="#">REVIEW MAGAZINE</a></li>
+                    <li><a href="#">CREATIVE PIZZA</a></li>
+                </ul>
+            </li>
+        </ul>
+        </aside>
+        <div class="m_overlay"></div>
+    </div>
     <main>
         <section class="main-visual">
             <div class="main-container">
@@ -276,7 +331,9 @@
             <div class="pizza-stage">
                 <!-- 왼쪽 화살표 -->
                 <button class="m-pizza-prev pizza-prev">
-                    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
                 </button>
 
                 <div class="swiper m-pizza-slider">
@@ -345,7 +402,9 @@
 
                 <!-- 오른쪽 화살표 -->
                 <button class="m-pizza-next pizza-next">
-                    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+                    <svg viewBox="0 0 24 24">
+                        <polyline points="9 18 15 12 9 6" />
+                    </svg>
                 </button>
             </div><!-- /pizza-stage -->
 

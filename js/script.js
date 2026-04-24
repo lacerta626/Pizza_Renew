@@ -1,29 +1,48 @@
+/**
+ * PIZZA HUT INTERACTIVE LANDING PAGE
+ * Dependencies: GSAP (ScrollTrigger, MatchMedia), Swiper.js, jQuery
+ */
+
 gsap.registerPlugin(ScrollTrigger);
 
-/* ============================= */
-/* 1. INTRO & MAIN VISUAL */
-/* ============================= */
+/* ==========================================================
+   1. INTRO ANIMATION & MAIN VISUAL
+   - 초반 로딩 인트로 및 메인 비주얼 등장 액션
+   ========================================================== */
 const introTl = gsap.timeline();
-introTl.to(".intro-word", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power4.out" })
-    .to(".intro-screen", { yPercent: -100, duration: 1.2, ease: "expo.inOut", delay: 0.5 })
+
+introTl
+    // 인트로 텍스트 순차 등장
+    .to(".intro-word", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power4.out" })
+    // 인트로 배경 위로 사라짐
+    .to(".intro-screen", { 
+        yPercent: -100, 
+        duration: 1.2, 
+        ease: "expo.inOut", 
+        delay: 0.5,
+        onComplete: () => { $('.intro-screen').hide(); } // 애니메이션 후 클릭 방해 방지
+    })
+    // 메인 이미지들 등장
     .to(".img-left", { x: 0, opacity: 1, duration: 1.4, ease: "expo.out" }, "-=0.2")
     .to(".img-right", { x: 0, opacity: 1, duration: 2.3, ease: "expo.out" }, "-=1.0")
+    // 중앙 피자 스케일 업
     .to(".pizza-center", { opacity: 1, scale: 1, duration: 2, ease: "back.out(1.5)" }, "-=1.0")
-    .to(".new-badge", {
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        ease: "power2.out"
-    }, "-=0.5");
+    // 신제품 배지 등장
+    .to(".new-badge", { opacity: 1, x: 0, duration: 0.8, ease: "power2.out" }, "-=0.5");
 
-// 피자 회전 및 페퍼로니 애니메이션
+// 메인 피자 무한 회전 (자연스러운 360도 루프)
 gsap.to(".main-pizza", { rotate: 360, duration: 120, repeat: -1, ease: "none" });
 
-/* ============================= */
-/* 2. MARQUEE & VIDEO MASK */
-/* ============================= */
+
+/* ==========================================================
+   2. SCROLL EFFECTS (Marquee, Video Mask, Fill Text)
+   - 스크롤에 반응하는 시각 효과들
+   ========================================================== */
+
+// 전광판(Marquee) 무한 흐름
 gsap.to(".marquee-content", { xPercent: -50, duration: 25, repeat: -1, ease: "none" });
 
+// 비디오 섹션 마스크 확장 (고정 및 스크롤 연동)
 const videoTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".video-section",
@@ -34,26 +53,13 @@ const videoTl = gsap.timeline({
     }
 });
 videoTl.to(".video-mask", { clipPath: "circle(100% at 50% 50%)", ease: "none", duration: 2 })
-    .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
+       .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
 
-gsap.to(".fill-text", {
-    backgroundSize: "100% 100%",
-    ease: "none",
-    scrollTrigger: {
-        trigger: ".text-container", // 개별 글자가 아닌 컨테이너 기준
-        start: "top 60%",           // 컨테이너가 화면 60% 높이에 오면 시작
-        end: "bottom 80%",          // 컨테이너 끝이 화면 40% 높이에 오면 종료
-        scrub: 1,                   // 스크롤과 동기화 (1은 부드러운 추적)
-    },
-    stagger: 1 // 🌟 이 값이 줄 간의 간격을 결정합니다. (순차적 실행)
-});
-/* ============================= */
-/* 2-1. SCROLL FILL TEXT (Responsive) */
-/* ============================= */
+// [Responsive] 스크롤 시 글자 색상 채워지는 효과
 const mm = gsap.matchMedia();
 
 mm.add("(min-width: 768px)", () => {
-    // PC 버전 설정 (기존 유지)
+    // PC: 글자 크기에 맞춰 backgroundSize 넉넉하게 설정
     gsap.to(".fill-text", {
         backgroundSize: "130% 130%",
         ease: "none",
@@ -68,44 +74,34 @@ mm.add("(min-width: 768px)", () => {
 });
 
 mm.add("(max-width: 767px)", () => {
-    // 모바일 버전 설정 (글자 크기에 맞춰 조절)
+    // Mobile: 트리거 시작점을 앞당기고 속도감 조절
     gsap.to(".fill-text", {
         backgroundSize: "100% 100%",
         ease: "none",
         scrollTrigger: {
             trigger: ".text-container",
-            start: "top 75%",     // 조금 더 일찍 시작하게 (화면 75% 지점)
-            end: "bottom 95%",    // 글자가 작으므로 더 빨리 끝나게 조절
+            start: "top 75%",
+            end: "bottom 95%",
             scrub: 1,
         },
-        stagger: 0.5             // 글자가 작으므로 간격을 좁혀 속도감을 줌
+        stagger: 0.5
     });
 });
-/* ============================= */
-/* 3. INTERACTIVE PIZZA MENU (PC) */
-/* ============================= */
-const pizzaSwiper = new Swiper('.pizza-slider', {
-    loop: true,
-    centeredSlides: true,
-    slidesPerView: 3,
-    spaceBetween: 0,
-    speed: 800,
-    navigation: {
-        nextEl: '.pizza-next',
-        prevEl: '.pizza-prev',
-    },
-    on: {
-        init: function () {
-            updatePcPizzaText(this);
-        },
-        slideChange: function () {
-            updatePcPizzaText(this);
-        }
-    }
-});
 
-function updatePcPizzaText(swiper) {
+
+/* ==========================================================
+   3. PIZZA MENU SLIDER (PC & Mobile)
+   - 슬라이드 이동 시 해당 피자의 이름/설정 업데이트
+   ========================================================== */
+
+/**
+ * 슬라이드 데이터(Name, Desc) 동기화 함수
+ * @param {Object} swiper - 해당 스와이퍼 객체
+ */
+function updatePizzaInfo(swiper) {
     const activeSlide = swiper.slides[swiper.activeIndex];
+    if (!activeSlide) return;
+
     const name = activeSlide.getAttribute('data-name');
     const desc = activeSlide.getAttribute('data-desc');
 
@@ -113,16 +109,17 @@ function updatePcPizzaText(swiper) {
         document.getElementById('target-name'),
         document.getElementById('target-name-hide1'),
         document.getElementById('target-name-hide2')
-    ];
+    ].filter(el => el !== null); // 존재하는 요소만 필터링
+
     const descElement = document.getElementById('target-desc');
     
-    // PC 요소가 없을 경우 실행 방지 (충돌 방지 핵심)
-    if (!nameElements[0] || !descElement) return;
+    if (!name || !descElement) return;
 
+    // 텍스트 전환 애니메이션 (GSAP)
     gsap.to([...nameElements, descElement], {
         opacity: 0, x: -20, duration: 0.3,
         onComplete: () => {
-            nameElements.forEach(el => { if(el) el.innerText = name; });
+            nameElements.forEach(el => el.innerText = name);
             descElement.innerHTML = desc;
             gsap.to([...nameElements, descElement], {
                 opacity: 1, x: 0, duration: 0.5, stagger: 0.05, ease: "power2.out"
@@ -131,59 +128,40 @@ function updatePcPizzaText(swiper) {
     });
 }
 
-/* ================================= */
-/* 3-M. MOBILE PIZZA MENU (MOBILE) */
-/* ================================= */
+// PC 슬라이더 설정
+const pizzaSwiper = new Swiper('.pizza-slider', {
+    loop: true,
+    centeredSlides: true,
+    slidesPerView: 3,
+    speed: 800,
+    navigation: { nextEl: '.pizza-next', prevEl: '.pizza-prev' },
+    on: {
+        init: function() { updatePizzaInfo(this); },
+        slideChange: function() { updatePizzaInfo(this); }
+    }
+});
+
+// Mobile 슬라이더 설정
 const mPizzaSwiper = new Swiper('.m-pizza-slider', {
     loop: true,
     centeredSlides: true,
-    slidesPerView: "auto", // CSS에서 width: 60%로 조절하기 위함
-    spaceBetween: 0,
+    slidesPerView: "auto",
     speed: 600,
-    observer: true,       // 창 크기 조절 시 리셋
+    observer: true,
     observeParents: true,
-    grabCursor: true,
-    navigation: {
-        nextEl: '.m-pizza-next',
-        prevEl: '.m-pizza-prev',
-    },
-    pagination: {
-        el: '.m-pizza-pagination',
-        clickable: true,
+    navigation: { nextEl: '.m-pizza-next', prevEl: '.m-pizza-prev' },
+    pagination: { el: '.m-pizza-pagination', clickable: true },
+    on: {
+        init: function() { updatePizzaInfo(this); }, // 초기 실행 시 텍스트 연동
+        slideChange: function() { updatePizzaInfo(this); } // 슬라이드 넘길 때 텍스트 연동
     }
 });
-// 중복되는 텍스트 업데이트 로직을 함수로 분리
-function updatePizzaText(swiper) {
-    const activeSlide = swiper.slides[swiper.activeIndex];
-    const name = activeSlide.getAttribute('data-name');
-    const desc = activeSlide.getAttribute('data-desc');
 
-    const nameElements = [
-        document.getElementById('target-name'),
-        document.getElementById('target-name-hide1'),
-        document.getElementById('target-name-hide2')
-    ];
-    const descElement = document.getElementById('target-desc');
-    if (!name) return;
-    gsap.to([...nameElements, descElement], {
-        opacity: 0,
-        x: -20,
-        duration: 0.3,
-        onComplete: () => {
-            nameElements.forEach(el => el.innerText = name);
-            descElement.innerHTML = desc;
 
-            gsap.to([...nameElements, descElement], {
-                opacity: 1,
-                x: 0,
-                duration: 0.5,
-                stagger: 0.05,
-                ease: "power2.out"
-            });
-        }
-    });
-}
-// 4. Footer Reveal Animation
+/* ==========================================================
+   4. INTERACTIVE FOOTER
+   - 푸터 섹션 등장 시 순차적 페이드 업
+   ========================================================== */
 gsap.from(".premium-footer > *", {
     scrollTrigger: {
         trigger: ".premium-footer",
@@ -194,4 +172,34 @@ gsap.from(".premium-footer > *", {
     duration: 1,
     stagger: 0.2,
     ease: "power2.out"
+});
+
+
+/* ==========================================================
+   5. MOBILE UI LOGIC
+   - 햄버거 메뉴 및 서브메뉴 아코디언 제어
+   ========================================================== */
+$(function() {
+    // 메뉴 열기
+    $('.hamburger').on('click', function() {
+        $('.m_gnb_area, .m_overlay').addClass('active');
+        $('body').css('overflow', 'hidden'); // 스크롤 잠금
+    });
+
+    // 메뉴 닫기 (X버튼 또는 배경 클릭)
+    $('.m_close, .m_overlay').on('click', function() {
+        $('.m_gnb_area, .m_overlay').removeClass('active');
+        $('body').css('overflow', 'auto'); // 스크롤 해제
+    });
+
+    // 아코디언 메뉴 (GNB 메뉴 클릭 시)
+    $('.m_gnb .depth1').on('click', function(e) {
+        e.preventDefault();
+        
+        const $subMenu = $(this).next('.m_submenu');
+        
+        // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
+        $subMenu.stop().slideToggle(300);
+        $(this).toggleClass('on');
+    });
 });
