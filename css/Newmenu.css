@@ -1,0 +1,89 @@
+/* 카테고리 헤더 */
+.category-header {
+    padding: 60px 0 30px;
+    border-bottom: 2px solid var(--red);
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.category-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+/* 메뉴 그리드 레이아웃 */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* PC 기준 3열 */
+    gap: 40px 20px;
+}
+
+/* 카드 디자인 */
+.menu-card {
+    position: relative;
+    background: #0a0a0a;
+    transition: transform 0.4s;
+}
+.card-img-box {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #111;
+    overflow: hidden;
+}
+.card-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 20px;
+    transition: 0.5s;
+}
+
+/* 호버 시 정보 노출 (진로 스타일) */
+.card-hover-info {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(238, 28, 37, 0.9); /* 피자헛 레드 적용 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.4s;
+}
+.menu-card:hover .card-hover-info { opacity: 1; }
+.menu-card:hover .card-img-box img { transform: scale(1.1); }
+
+/* 텍스트 영역 (공차 스타일의 깔끔함) */
+.card-txt-box {
+    padding: 20px 0;
+    text-align: center;
+}
+.menu-name-ko {
+    font-family: 'SchoolSafetyNotification'; /* 메인과 동일 폰트 */
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+.menu-name-en {
+    font-family: 'Montserrat';
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+.menu-price {
+    font-family: 'SUIT';
+    font-weight: 700;
+    color: var(--red);
+}
+
+/* 반응형 처리 */
+@media(max-width: 1024px) {
+    .menu-container { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 768px) {
+    .menu-container { grid-template-columns: repeat(1, 1fr); }
+}

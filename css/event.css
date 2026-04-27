@@ -1,0 +1,38 @@
+/* 이벤트 섹션 공통 */
+.event-section { padding: 100px 0; background: #000; }
+.section-title-wrap { text-align: center; margin-bottom: 60px; }
+.sub-page-title { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: var(--red); font-style: italic; }
+.sub-page-desc { font-family: 'SUIT', sans-serif; color: #888; margin-top: 10px; }
+
+/* 리스트 레이아웃 (3열 배치) */
+.event-list { display: flex; flex-wrap: wrap; gap: 40px 20px; }
+.event-item { width: calc(33.333% - 14px); transition: 0.3s; }
+
+/* 이미지 영역 */
+.event-img { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 8px; background: #111; }
+.event-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.event-item:hover .event-img img { transform: scale(1.05); }
+
+/* 배지 스타일 */
+.event-badge { position: absolute; top: 15px; left: 15px; padding: 5px 15px; font-size: 0.8rem; font-weight: 700; border-radius: 20px; z-index: 10; }
+.event-badge.ongoing { background: var(--red); color: #fff; }
+.event-badge.done { background: #555; color: #ccc; }
+
+/* 텍스트 영역 */
+.event-info { padding: 20px 5px; }
+.event-title { font-family: 'SUIT', sans-serif; font-size: 1.25rem; font-weight: 600; color: #fff; line-height: 1.4; margin-bottom: 10px; 
+               white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } /* 긴 제목 생략 처리 */
+.event-date { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #666; }
+
+/* 종료된 이벤트 흐리게 처리 */
+.event-item.expired { opacity: 0.6; }
+.event-item.expired:hover { opacity: 1; }
+
+/* 반응형 */
+@media (max-width: 1024px) {
+    .event-item { width: calc(50% - 10px); }
+}
+@media (max-width: 768px) {
+    .event-item { width: 100%; }
+    .sub-page-title { font-size: 2.2rem; }
+}
