@@ -32,5 +32,13 @@ footer{background:#111;padding:80px 0 40px;border-top:1px solid #333;font-family
 .f_info p{font-size:.95rem;color:#888;margin-bottom:10px;line-height:1.8}.f_policy{display:flex;gap:30px}.f_policy a{font-size:.95rem;color:#aaa;transition:.3s}.f_policy a:hover,.f_policy a strong{color:#fff}.f_policy strong{font-weight:700}
 .f_bottom{margin-top:60px;text-align:center}.copyright{font-size:.85rem;color:#555;letter-spacing:1px;text-transform:uppercase}
 
+/* modal */
+.modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: none; justify-content: center; align-items: center; z-index: 2000; backdrop-filter: blur(5px); }
+.modal-content { background: #111; border: 2px solid var(--red); padding: 40px; text-align: center; width: 90%; max-width: 400px; border-radius: 15px; box-shadow: 0 0 30px rgba(238, 28, 37, 0.3); }
+.modal-icon { width: 60px; height: 60px; background: var(--red); color: #fff; font-size: 2rem; font-weight: 900; line-height: 60px; border-radius: 50%; margin: 0 auto 20px; }
+.modal-content h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; color: var(--red); margin-bottom: 15px; font-style: italic; }
+.modal-content p { font-family: 'SUIT', sans-serif; color: #ccc; line-height: 1.6; font-size: 0.95rem; }
+.btn-modal-close { margin-top: 30px; padding: 10px 40px; background: var(--red); border: none; color: #fff; font-weight: 800; cursor: pointer; transition: 0.3s; border-radius: 5px; }
+.btn-modal-close:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--red); }
 /* responsive ***************************************************/
 @media(max-width:768px){.f_top{flex-direction:column;gap:30px;text-align:center}.f_mid{flex-direction:column;align-items:center;text-align:center}.f_policy{justify-content:center;gap:15px}}

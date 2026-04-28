@@ -1,89 +1,34 @@
-/* 카테고리 헤더 */
-.category-header {
-    padding: 60px 0 30px;
-    border-bottom: 2px solid var(--red);
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-.category-name {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    font-style: italic;
-    font-weight: 900;
-}
+.menu-grid-section { padding: 100px 0; background: #000; }
+.section-title-wrap { text-align: center; margin-bottom: 60px; }
+.sub-page-title { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: var(--red); font-style: italic; }
+.sub-page-desc { font-family: 'SUIT', sans-serif; color: #888; margin-top: 10px; }
 
-/* 메뉴 그리드 레이아웃 */
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* PC 기준 3열 */
-    gap: 40px 20px;
-}
+/* 카테고리 헤더 로직 */
+.category-header { padding: 60px 0 30px; border-bottom: 2px solid var(--red); margin-bottom: 50px; display: flex; justify-content: space-between; align-items: flex-end; }
+.category-name { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-style: italic; font-weight: 900; }
 
-/* 카드 디자인 */
-.menu-card {
-    position: relative;
-    background: #0a0a0a;
-    transition: transform 0.4s;
-}
-.card-img-box {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: #111;
-    overflow: hidden;
-}
-.card-img-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    padding: 20px;
-    transition: 0.5s;
-}
+/* 메뉴 그리드 레이아웃 로직 */
+.menu-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px 20px; }
+.menu-card { position: relative; background: #0a0a0a; transition: transform 0.4s; }
 
-/* 호버 시 정보 노출 (진로 스타일) */
-.card-hover-info {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(238, 28, 37, 0.9); /* 피자헛 레드 적용 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: 0.4s;
-}
+/* 카드 이미지 및 뱃지 로직 */
+.card-img-box { position: relative; width: 100%; aspect-ratio: 1 / 1; background: #111; overflow: hidden; }
+.card-img-box img { width: 100%; height: 100%; object-fit: contain; padding: 20px; transition: 0.5s; }
+
+/* 호버 오버레이 (진로 스타일) 로직 */
+.card-hover-info { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(238, 28, 37, 0.9); display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; transition: 0.4s; }
 .menu-card:hover .card-hover-info { opacity: 1; }
 .menu-card:hover .card-img-box img { transform: scale(1.1); }
 
-/* 텍스트 영역 (공차 스타일의 깔끔함) */
-.card-txt-box {
-    padding: 20px 0;
-    text-align: center;
-}
-.menu-name-ko {
-    font-family: 'SchoolSafetyNotification'; /* 메인과 동일 폰트 */
-    font-size: 1.4rem;
-    margin-bottom: 5px;
-}
-.menu-name-en {
-    font-family: 'Montserrat';
-    font-size: 0.8rem;
-    color: #666;
-    display: block;
-    margin-bottom: 10px;
-}
-.menu-price {
-    font-family: 'SUIT';
-    font-weight: 700;
-    color: var(--red);
-}
+.btn-view-detail { margin-top: 30px; padding: 10px 40px; background: #fff; border: none;  font-family: 'SUIT', sans-serif; color: var(--red); line-height: 1.6; font-size: 0.95rem; font-weight: 800; cursor: pointer; transition: 0.3s; border-radius: 5px; }
+.btn-view-detail:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--red); }
 
-/* 반응형 처리 */
-@media(max-width: 1024px) {
-    .menu-container { grid-template-columns: repeat(2, 1fr); }
-}
-@media(max-width: 768px) {
-    .menu-container { grid-template-columns: repeat(1, 1fr); }
-}
+/* 텍스트 정보 (공차 스타일) 로직 */
+.card-txt-box { padding: 20px 0; text-align: center; }
+.menu-name-ko { font-family: 'SchoolSafetyNotification'; font-size: 1.4rem; margin-bottom: 5px; }
+.menu-name-en { font-family: 'Montserrat'; font-size: 0.8rem; color: #666; display: block; margin-bottom: 10px; }
+.menu-price { font-family: 'SUIT'; font-weight: 700; color: var(--red); }
+
+/* 반응형 모바일 최적화 로직 */
+@media(max-width: 1024px) { .menu-container { grid-template-columns: repeat(2, 1fr); } }
+@media(max-width: 768px) { .menu-container { grid-template-columns: repeat(1, 1fr); } }

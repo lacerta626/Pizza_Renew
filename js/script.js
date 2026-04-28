@@ -51,6 +51,21 @@ $(function() {
     });
 });
 }
+// modal* ==========================================================
+$(function() {
+    // 열기 로직
+    $(document).on('click', 'a[href="#"], .btn-ready', function(e) {
+        e.preventDefault();
+        $('#ready-modal').css('display', 'flex');
+        $('body').css('overflow', 'hidden');
+    });
+
+    // 닫기 로직 (위임 방식)
+    $(document).on('click', '.btn-modal-close', function() {
+        $('#ready-modal').fadeOut();
+        $('body').css('overflow', 'auto');
+    });
+});
 
 /* ==========================================================
    1. INTRO ANIMATION & MAIN VISUAL
@@ -268,3 +283,4 @@ $(function() {
         });
     });
 });
+
