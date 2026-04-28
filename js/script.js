@@ -53,20 +53,24 @@ $(function() {
 }
 // modal* ==========================================================
 $(function() {
-    // 열기 로직
+    // 1. 모달 띄우기: 하위 메뉴가 없는 일반 링크(#)나 .btn-ready만 실행
     $(document).on('click', 'a[href="#"], .btn-ready', function(e) {
+        // [조건 체크] 모바일 depth1이거나, PC gnb 중 하위 메뉴(submenu)를 가진 항목은 제외
+        if ($(this).hasClass('depth1') || $(this).siblings('.submenu').length > 0) {
+            return; // 모달을 띄우지 않고 로직 종료
+        }
+
         e.preventDefault();
         $('#ready-modal').css('display', 'flex');
         $('body').css('overflow', 'hidden');
     });
 
-    // 닫기 로직 (위임 방식)
+    // 2. 모달 닫기 로직 (유지)
     $(document).on('click', '.btn-modal-close', function() {
-        $('#ready-modal').fadeOut();
+        $('#ready-modal').hide();
         $('body').css('overflow', 'auto');
     });
 });
-
 /* ==========================================================
    1. INTRO ANIMATION & MAIN VISUAL
    - 초반 로딩 인트로 및 메인 비주얼 등장 액션
