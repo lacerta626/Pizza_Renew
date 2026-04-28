@@ -109,14 +109,14 @@ const videoTl = gsap.timeline({
     scrollTrigger: {
         trigger: ".video-section",
         start: "top top",
-        end: "+=1500",
+        end: "+=3000",
         scrub: 1,
         pin: true
     }
 });
 videoTl.to(".video-mask", { clipPath: "circle(100% at 50% 50%)", ease: "none", duration: 2 })
-       .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0");
-
+       .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0")
+.to({}, { duration: 4 });
 // [Responsive] 스크롤 시 글자 색상 채워지는 효과
 const mm = gsap.matchMedia();
 

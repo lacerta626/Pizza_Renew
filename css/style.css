@@ -72,7 +72,7 @@ header{display:none;}
 .marquee-wrapper{background:var(--red);padding:20px 0;z-index:10;position:relative;overflow:hidden;}
 .marquee-content{white-space:nowrap;font-size:2rem;font-weight:900;font-style:italic;color:#fff;display:flex;}
 .pizza-center{position:relative;}
-.new-badge{font-family:'Montserrat',sans-serif;position:absolute;right:0;top:60%;font-size:8rem;font-style:italic;font-weight:900;color:#fff;opacity:0;z-index:15;transform:translateX(20px);}
+.new-badge{display: flex;flex-direction: column;align-items: flex-end;text-align: right;line-height: 1;font-family:'SchoolSafetyNotification',sans-serif;position:absolute;right:0;top:60%;font-size:8rem;font-style:italic;font-weight:900;color:#fff;opacity:0;z-index:15;transform:translateX(10px);}
 
 
 @media(max-width:1024px){
