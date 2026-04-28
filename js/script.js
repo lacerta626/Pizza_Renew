@@ -5,6 +5,53 @@
 
 gsap.registerPlugin(ScrollTrigger);
 
+// js/common.js 또는 script.js 상단
+$(function() {
+    // #header-include 영역에 header.html 파일을 불러와서 넣습니다.
+    $("#header-include").load("header.html", function() {
+        // 헤더를 불러온 후 실행되어야 할 스크립트(햄버거 메뉴 등)를 여기에 넣습니다.
+        initHeaderLogic(); 
+    });
+});
+
+// 기존에 작성했던 헤더 관련 JS 로직을 함수로 묶어줍니다.
+function initHeaderLogic() {
+    // 햄버거 메뉴 클릭 이벤트
+    $('.hamburger').off('click').on('click', function() {
+        $('.m_gnb_area, .m_overlay').addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
+
+    /* ==========================================================
+   5. MOBILE UI LOGIC
+   - 햄버거 메뉴 및 서브메뉴 아코디언 제어
+   ========================================================== */
+$(function() {
+    // 메뉴 열기
+    $('.hamburger').on('click', function() {
+        $('.m_gnb_area, .m_overlay').addClass('active');
+        $('body').css('overflow', 'hidden'); // 스크롤 잠금
+    });
+
+    // 메뉴 닫기 (X버튼 또는 배경 클릭)
+    $('.m_close, .m_overlay').on('click', function() {
+        $('.m_gnb_area, .m_overlay').removeClass('active');
+        $('body').css('overflow', 'auto'); // 스크롤 해제
+    });
+
+    // 아코디언 메뉴 (GNB 메뉴 클릭 시)
+    $('.m_gnb .depth1').on('click', function(e) {
+        e.preventDefault();
+        
+        const $subMenu = $(this).next('.m_submenu');
+        
+        // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
+        $subMenu.stop().slideToggle(300);
+        $(this).toggleClass('on');
+    });
+});
+}
+
 /* ==========================================================
    1. INTRO ANIMATION & MAIN VISUAL
    - 초반 로딩 인트로 및 메인 비주얼 등장 액션
@@ -175,31 +222,49 @@ gsap.from(".premium-footer > *", {
 });
 
 
+
+
+// map
 /* ==========================================================
-   5. MOBILE UI LOGIC
-   - 햄버거 메뉴 및 서브메뉴 아코디언 제어
+   STORE MAP LOGIC (Kakao Map)
    ========================================================== */
 $(function() {
-    // 메뉴 열기
-    $('.hamburger').on('click', function() {
-        $('.m_gnb_area, .m_overlay').addClass('active');
-        $('body').css('overflow', 'hidden'); // 스크롤 잠금
-    });
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+        mapOption = { 
+            center: new kakao.maps.LatLng(37.5551, 126.9707), // 초기 중심좌표 (서울역)
+            level: 3 // 지도의 확대 레벨
+        };
 
-    // 메뉴 닫기 (X버튼 또는 배경 클릭)
-    $('.m_close, .m_overlay').on('click', function() {
-        $('.m_gnb_area, .m_overlay').removeClass('active');
-        $('body').css('overflow', 'auto'); // 스크롤 해제
-    });
+    // 1. 지도 생성
+    var map = new kakao.maps.Map(mapContainer, mapOption); 
 
-    // 아코디언 메뉴 (GNB 메뉴 클릭 시)
-    $('.m_gnb .depth1').on('click', function(e) {
-        e.preventDefault();
-        
-        const $subMenu = $(this).next('.m_submenu');
-        
-        // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
-        $subMenu.stop().slideToggle(300);
-        $(this).toggleClass('on');
+    // 2. 주소-좌표 변환 객체 생성
+    var geocoder = new kakao.maps.services.Geocoder();
+
+    // 3. 매장 클릭 시 이벤트
+    $('.store-item').on('click', function() {
+        var $this = $(this);
+        var addr = $this.find('.address').text(); // HTML의 주소 텍스트 가져오기
+        var storeName = $this.find('h4').text();
+
+        // 리스트 활성화 스타일 제어
+        $('.store-item').removeClass('active');
+        $this.addClass('active');
+
+        // 주소로 좌표를 검색합니다
+        geocoder.addressSearch(addr, function(result, status) {
+            if (status === kakao.maps.services.Status.OK) {
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 마커 이미지 설정 (피자 아이콘 등으로 변경 가능)
+                var marker = new kakao.maps.Marker({
+                    map: map,
+                    position: coords
+                });
+
+                // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                map.panTo(coords);
+            } 
+        });
     });
 });

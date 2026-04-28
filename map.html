@@ -5,6 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PIZZA HUT | Visual Taste Renewal</title>
+
+    <!-- map key -->
+     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a0bbc1fd74166ad1a9688e2f2cd40007&libraries=services"></script>
     <!-- External Libraries -->
     <script
         src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js)"></script>
@@ -21,7 +24,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/event.css">
+    <link rel="stylesheet" href="css/map.css">
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -34,53 +37,54 @@
 <body>
     <div id="header-include"></div>
     <main>
-        <section class="event-section">
-            <div class="inner">
-                <div class="section-title-wrap">
-                    <h2 class="sub-page-title">EVENT</h2>
-                    <p class="sub-page-desc">피자헛의 다양한 혜택과 즐거운 소식을 확인하세요.</p>
-                </div>
+        <section class="store-search-section">
+    <div class="inner">
+        <div class="section-title-wrap">
+            <h2 class="sub-page-title">FIND A STORE</h2>
+            <p class="sub-page-desc">가까운 피자헛 매장에서 갓 구운 피자를 만나보세요.</p>
+        </div>
 
-                <ul class="event-list">
-                    <li class="event-item">
-                        <a href="#">
-                            <div class="event-img">
-                                <img src="images/event_01.jpg" alt="이벤트 이미지">
-                                <span class="event-badge ongoing">진행중</span>
+        <div class="store-container">
+            <div class="store-sidebar">
+                <div class="search-box">
+                    <input type="text" placeholder="지역명 또는 매장명 입력">
+                    <button type="button" class="btn-search">검색</button>
+                </div>
+                
+                <div class="store-list-wrap">
+                    <p class="count-info">검색 결과 <span>3</span>건</p>
+                    <ul class="store-list">
+                        <li class="store-item active">
+                            <div class="info-top">
+                                <span class="badge-status">배달/포장</span>
+                                <h4>프리미엄 서울역점</h4>
                             </div>
-                            <div class="event-info">
-                                <h3 class="event-title">3X 한근 반근 치즈페스타</h3>
-                                <p class="event-date">2026.04.01 ~ 2026.05.31</p>
+                            <p class="address">서울특별시 중구 한강대로 405</p>
+                            <p class="tel">02-1234-5678</p>
+                            <div class="store-btns">
+                                <a href="#" class="btn-order-small">주문하기</a>
                             </div>
-                        </a>
-                    </li>
-                    <li class="event-item">
-                        <a href="#">
-                            <div class="event-img">
-                                <img src="images/event_01.jpg" alt="이벤트 이미지">
-                                <span class="event-badge ongoing">진행중</span>
+                        </li>
+                        <li class="store-item">
+                            <div class="info-top">
+                                <span class="badge-status">포장전용</span>
+                                <h4>종로본점</h4>
                             </div>
-                            <div class="event-info">
-                                <h3 class="event-title">블랙라벨 트러플 출시 기념 30% 할인</h3>
-                                <p class="event-date">2026.04.01 ~ 2026.04.31</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="event-item expired">
-                        <a href="#">
-                            <div class="event-img">
-                                <img src="images/event_02.jpg" alt="이벤트 이미지">
-                                <span class="event-badge done">종료</span>
-                            </div>
-                            <div class="event-info">
-                                <h3 class="event-title">크래프티드 플래츠 전용 프로모션</h3>
-                                <p class="event-date">2026.03.01 ~ 2026.03.31</p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
+                            <p class="address">서울특별시 종로구 종로 12</p>
+                            <p class="tel">02-9876-5432</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </section>
+
+            <div class="store-map-area">
+                <div id="map" style="width:100%;height:100%;background:#222;">
+                    <p style="color:#666; text-align:center; padding-top:250px;">지도를 불러오는 중입니다...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
     <!-- 7. Premium Footer Section -->
     <footer class="premium-footer">
