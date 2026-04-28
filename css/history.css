@@ -1,0 +1,64 @@
+:root { --red: #ee1c25; --red-dim: rgba(238,28,37,0.15); --red-glow: rgba(238,28,37,0.35); --gold: #d2a84b; --surface: #0d0d0d; --surface2: #141414; --border: #1e1e1e; --border2: #2a2a2a; --text-muted: #555; --text-sub: #888; }
+ 
+        /* ── 히어로 ── */
+        .history-hero { position: relative; padding: 160px 0 100px; text-align: center; overflow: hidden; background: #000; }
+        .history-hero::before { content: '1958'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Montserrat', sans-serif; font-size: clamp(120px, 22vw, 260px); font-weight: 900; color: transparent; -webkit-text-stroke: 1px #1a1a1a; line-height: 1; pointer-events: none; letter-spacing: -0.04em; white-space: nowrap; }
+        .hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 24px; opacity: 0; transform: translateY(20px); }
+        .hero-title { font-family: 'Montserrat', sans-serif; font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; font-style: italic; color: #fff; line-height: 1; letter-spacing: -0.02em; opacity: 0; transform: translateY(30px); }
+        .hero-title span { color: var(--red); }
+        .hero-desc { font-family: 'SUIT', sans-serif; font-size: 1rem; color: var(--text-sub); margin-top: 28px; line-height: 1.8; opacity: 0; transform: translateY(20px); }
+        .hero-line { width: 1px; height: 80px; background: linear-gradient(to bottom, var(--red), transparent); margin: 50px auto 0; opacity: 0; }
+ 
+        /* ── 타임라인 섹션 ── */
+        .history-section { background: #000; padding: 0 0 140px; }
+        .timeline-wrap { max-width: 960px; margin: 0 auto; padding: 0 40px; position: relative; }
+        .timeline-line { position: absolute; left: 50%; transform: translateX(-50%); top: 0; bottom: 0; width: 1px; background: var(--border); }
+        .timeline-progress { position: absolute; left: 50%; transform: translateX(-50%); top: 0; width: 1px; height: 0%; background: var(--red); transition: height 0.1s linear; z-index: 2; }
+ 
+        /* ── 각 아이템 ── */
+        .tl-item { display: flex; align-items: flex-start; gap: 0; margin-bottom: 0; position: relative; opacity: 0; transform: translateY(40px); }
+        .tl-item:nth-child(odd) { flex-direction: row; }
+        .tl-item:nth-child(even) { flex-direction: row-reverse; }
+        .tl-card { flex: 1; padding: 36px 44px 36px 0; cursor: pointer; }
+        .tl-item:nth-child(even) .tl-card { padding: 36px 0 36px 44px; }
+        .tl-card-inner { background: var(--surface2); border: 1px solid var(--border); border-radius: 10px; padding: 28px 32px; position: relative; transition: border-color 0.35s, background 0.35s, transform 0.35s cubic-bezier(0.23, 1, 0.32, 1); overflow: hidden; }
+        .tl-card-inner::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 0%; background: var(--red); transition: height 0.4s cubic-bezier(0.23, 1, 0.32, 1); }
+        .tl-item:nth-child(even) .tl-card-inner::before { left: auto; right: 0; }
+        .tl-item.active .tl-card-inner, .tl-card-inner:hover { border-color: #333; background: #111; transform: scale(1.02); }
+        .tl-item.active .tl-card-inner::before { height: 100%; }
+ 
+        /* ── 카드 내 글 ── */
+        .tl-category { font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 10px; }
+        .tl-title { font-family: 'SUIT', sans-serif; font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1.4; margin-bottom: 14px; }
+        .tl-desc { font-family: 'SUIT', sans-serif; font-size: 0.88rem; color: var(--text-sub); line-height: 1.8; max-height: 0; overflow: hidden; transition: max-height 0.5s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s; opacity: 0; }
+        .tl-item.active .tl-desc { max-height: 200px; opacity: 1; }
+        .tl-tag { display: inline-block; margin-top: 14px; padding: 4px 12px; font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; border-radius: 20px; background: var(--red-dim); color: var(--red); border: 1px solid rgba(238,28,37,0.3); opacity: 0; transform: translateY(6px); transition: opacity 0.3s 0.15s, transform 0.3s 0.15s; }
+        .tl-item.active .tl-tag { opacity: 1; transform: translateY(0); }
+ 
+        /* ── 중앙 도트 영역 ── */
+        .tl-center { flex: 0 0 0; position: relative; z-index: 10; display: flex; flex-direction: column; align-items: center; }
+        .tl-year-badge { position: absolute; left: 50%; top: 36px; transform: translateX(-50%); font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 900; letter-spacing: 0.05em; color: #fff; background: var(--red); padding: 4px 12px; border-radius: 20px; white-space: nowrap; z-index: 10; transition: transform 0.3s, box-shadow 0.3s; }
+        .tl-item.active .tl-year-badge { transform: translateX(-50%) scale(1.1); box-shadow: 0 0 20px var(--red-glow); }
+        .tl-dot { position: absolute; left: 50%; top: 68px; transform: translateX(-50%); width: 12px; height: 12px; border-radius: 50%; background: var(--border2); border: 2px solid #000; z-index: 10; transition: background 0.3s, transform 0.3s, box-shadow 0.3s; }
+        .tl-item.active .tl-dot { background: var(--red); transform: translateX(-50%) scale(1.4); box-shadow: 0 0 12px var(--red-glow); }
+        .tl-empty { flex: 1; }
+ 
+        /* ── 푸터 연결 ── */
+        .history-end { text-align: center; padding: 60px 0; position: relative; }
+        .history-end-line { width: 1px; height: 60px; background: linear-gradient(to bottom, var(--red), transparent); margin: 0 auto 30px; }
+        .history-end-text { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.2em; color: var(--text-muted); text-transform: uppercase; }
+ 
+        /* ── 반응형 ── */
+        @media (max-width: 768px) {
+            .timeline-wrap { padding: 0 20px; }
+            .timeline-line, .timeline-progress { left: 20px; }
+            .tl-item, .tl-item:nth-child(even) { flex-direction: row; }
+            .tl-center { flex: 0 0 0; }
+            .tl-year-badge { left: 20px; top: 20px; }
+            .tl-dot { left: 20px; top: 54px; }
+            .tl-card, .tl-item:nth-child(even) .tl-card { padding: 16px 0 16px 50px; }
+            .tl-empty { display: none; }
+            .tl-card-inner::before, .tl-item:nth-child(even) .tl-card-inner::before { left: 0; right: auto; }
+            .hero-title { font-size: 2.5rem; }
+            .history-hero::before { font-size: 100px; }
+        }

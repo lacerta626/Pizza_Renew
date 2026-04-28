@@ -6,18 +6,102 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // js/common.js 또는 script.js 상단
-$(function() {
+$(function () {
     // #header-include 영역에 header.html 파일을 불러와서 넣습니다.
-    $("#header-include").load("header.html", function() {
+    $("#header-include").load("header.html", function () {
         // 헤더를 불러온 후 실행되어야 할 스크립트(햄버거 메뉴 등)를 여기에 넣습니다.
+        initHeaderLogic();
+    });
+
+
+
+
+    /* ── 히어로 등장 애니메이션 ── */
+    const heroTl = gsap.timeline({ delay: 0.2 });
+    heroTl
+        .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' })
+        .to('.hero-title', { opacity: 1, y: 0, duration: 1.0, ease: 'expo.out' }, '-=0.4')
+        .to('.hero-desc', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
+        .to('.hero-line', { opacity: 1, duration: 1.0, ease: 'power2.out' }, '-=0.3');
+
+    /* ── 타임라인 아이템 스크롤 등장 ── */
+    gsap.utils.toArray('.tl-item').forEach((item, i) => {
+        gsap.to(item, {
+            scrollTrigger: {
+                trigger: item,
+                start: 'top 82%',
+                toggleActions: 'play none none none'
+            },
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: 0.05
+        });
+    });
+
+    /* ── 타임라인 진행 선 ── */
+    const tlWrap = document.querySelector('.timeline-wrap');
+    const tlProgress = document.getElementById('tlProgress');
+
+    if (tlWrap && tlProgress) {
+        ScrollTrigger.create({
+            trigger: '.history-section',
+            start: 'top 60%',
+            end: 'bottom 80%',
+            onUpdate: (self) => {
+                tlProgress.style.height = (self.progress * 100) + '%';
+            }
+        });
+    }
+
+    /* ── 카드 클릭 토글 ── */
+    $(document).on('click', '.tl-item', function () {
+        const isActive = $(this).hasClass('active');
+        $('.tl-item').removeClass('active');
+        if (!isActive) $(this).addClass('active');
+    });
+
+    /* ── 첫 번째 아이템 기본 오픈 ── */
+    setTimeout(() => {
+        $('.tl-item').first().addClass('active');
+    }, 1200);
+
+});
+// footer
+// script.js 상단 로드 부분
+$(function() {
+    // 헤더 불러오기
+    $("#header-include").load("header.html", function() {
         initHeaderLogic(); 
     });
+
+    // 푸터 불러오기
+    $("#footer-include").load("footer.html", function() {
+        initFooterLogic(); // 푸터 등장 애니메이션을 위해 추가
+    });
 });
+
+// 푸터 애니메이션 로직 함수화
+function initFooterLogic() {
+    gsap.from(".premium-footer > *", {
+        scrollTrigger: {
+            trigger: ".premium-footer",
+            start: "top 90%",
+        },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+}
+
 
 // 기존에 작성했던 헤더 관련 JS 로직을 함수로 묶어줍니다.
 function initHeaderLogic() {
     // 햄버거 메뉴 클릭 이벤트
-    $('.hamburger').off('click').on('click', function() {
+    $('.hamburger').off('click').on('click', function () {
         $('.m_gnb_area, .m_overlay').addClass('active');
         $('body').css('overflow', 'hidden');
     });
@@ -26,35 +110,35 @@ function initHeaderLogic() {
    5. MOBILE UI LOGIC
    - 햄버거 메뉴 및 서브메뉴 아코디언 제어
    ========================================================== */
-$(function() {
-    // 메뉴 열기
-    $('.hamburger').on('click', function() {
-        $('.m_gnb_area, .m_overlay').addClass('active');
-        $('body').css('overflow', 'hidden'); // 스크롤 잠금
-    });
+    $(function () {
+        // 메뉴 열기
+        $('.hamburger').on('click', function () {
+            $('.m_gnb_area, .m_overlay').addClass('active');
+            $('body').css('overflow', 'hidden'); // 스크롤 잠금
+        });
 
-    // 메뉴 닫기 (X버튼 또는 배경 클릭)
-    $('.m_close, .m_overlay').on('click', function() {
-        $('.m_gnb_area, .m_overlay').removeClass('active');
-        $('body').css('overflow', 'auto'); // 스크롤 해제
-    });
+        // 메뉴 닫기 (X버튼 또는 배경 클릭)
+        $('.m_close, .m_overlay').on('click', function () {
+            $('.m_gnb_area, .m_overlay').removeClass('active');
+            $('body').css('overflow', 'auto'); // 스크롤 해제
+        });
 
-    // 아코디언 메뉴 (GNB 메뉴 클릭 시)
-    $('.m_gnb .depth1').on('click', function(e) {
-        e.preventDefault();
-        
-        const $subMenu = $(this).next('.m_submenu');
-        
-        // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
-        $subMenu.stop().slideToggle(300);
-        $(this).toggleClass('on');
+        // 아코디언 메뉴 (GNB 메뉴 클릭 시)
+        $('.m_gnb .depth1').on('click', function (e) {
+            e.preventDefault();
+
+            const $subMenu = $(this).next('.m_submenu');
+
+            // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
+            $subMenu.stop().slideToggle(300);
+            $(this).toggleClass('on');
+        });
     });
-});
 }
 // modal* ==========================================================
-$(function() {
+$(function () {
     // 1. 모달 띄우기: 하위 메뉴가 없는 일반 링크(#)나 .btn-ready만 실행
-    $(document).on('click', 'a[href="#"], .btn-ready', function(e) {
+    $(document).on('click', 'a[href="#"], .btn-ready', function (e) {
         // [조건 체크] 모바일 depth1이거나, PC gnb 중 하위 메뉴(submenu)를 가진 항목은 제외
         if ($(this).hasClass('depth1') || $(this).siblings('.submenu').length > 0) {
             return; // 모달을 띄우지 않고 로직 종료
@@ -66,7 +150,7 @@ $(function() {
     });
 
     // 2. 모달 닫기 로직 (유지)
-    $(document).on('click', '.btn-modal-close', function() {
+    $(document).on('click', '.btn-modal-close', function () {
         $('#ready-modal').hide();
         $('body').css('overflow', 'auto');
     });
@@ -81,10 +165,10 @@ introTl
     // 인트로 텍스트 순차 등장
     .to(".intro-word", { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power4.out" })
     // 인트로 배경 위로 사라짐
-    .to(".intro-screen", { 
-        yPercent: -100, 
-        duration: 1.2, 
-        ease: "expo.inOut", 
+    .to(".intro-screen", {
+        yPercent: -100,
+        duration: 1.2,
+        ease: "expo.inOut",
         delay: 0.5,
         onComplete: () => { $('.intro-screen').hide(); } // 애니메이션 후 클릭 방해 방지
     })
@@ -119,8 +203,8 @@ const videoTl = gsap.timeline({
     }
 });
 videoTl.to(".video-mask", { clipPath: "circle(100% at 50% 50%)", ease: "none", duration: 2 })
-       .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0")
-.to({}, { duration: 4 });
+    .to(".video-text-box", { opacity: 1, y: 0, duration: 1.2 }, "-=1.0")
+    .to({}, { duration: 4 });
 // [Responsive] 스크롤 시 글자 색상 채워지는 효과
 const mm = gsap.matchMedia();
 
@@ -178,7 +262,7 @@ function updatePizzaInfo(swiper) {
     ].filter(el => el !== null); // 존재하는 요소만 필터링
 
     const descElement = document.getElementById('target-desc');
-    
+
     if (!name || !descElement) return;
 
     // 텍스트 전환 애니메이션 (GSAP)
@@ -202,8 +286,8 @@ const pizzaSwiper = new Swiper('.pizza-slider', {
     speed: 800,
     navigation: { nextEl: '.pizza-next', prevEl: '.pizza-prev' },
     on: {
-        init: function() { updatePizzaInfo(this); },
-        slideChange: function() { updatePizzaInfo(this); }
+        init: function () { updatePizzaInfo(this); },
+        slideChange: function () { updatePizzaInfo(this); }
     }
 });
 
@@ -218,8 +302,8 @@ const mPizzaSwiper = new Swiper('.m-pizza-slider', {
     navigation: { nextEl: '.m-pizza-next', prevEl: '.m-pizza-prev' },
     pagination: { el: '.m-pizza-pagination', clickable: true },
     on: {
-        init: function() { updatePizzaInfo(this); }, // 초기 실행 시 텍스트 연동
-        slideChange: function() { updatePizzaInfo(this); } // 슬라이드 넘길 때 텍스트 연동
+        init: function () { updatePizzaInfo(this); }, // 초기 실행 시 텍스트 연동
+        slideChange: function () { updatePizzaInfo(this); } // 슬라이드 넘길 때 텍스트 연동
     }
 });
 
@@ -247,21 +331,21 @@ gsap.from(".premium-footer > *", {
 /* ==========================================================
    STORE MAP LOGIC (Kakao Map)
    ========================================================== */
-$(function() {
+$(function () {
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-        mapOption = { 
+        mapOption = {
             center: new kakao.maps.LatLng(37.5551, 126.9707), // 초기 중심좌표 (서울역)
             level: 3 // 지도의 확대 레벨
         };
 
     // 1. 지도 생성
-    var map = new kakao.maps.Map(mapContainer, mapOption); 
+    var map = new kakao.maps.Map(mapContainer, mapOption);
 
     // 2. 주소-좌표 변환 객체 생성
     var geocoder = new kakao.maps.services.Geocoder();
 
     // 3. 매장 클릭 시 이벤트
-    $('.store-item').on('click', function() {
+    $('.store-item').on('click', function () {
         var $this = $(this);
         var addr = $this.find('.address').text(); // HTML의 주소 텍스트 가져오기
         var storeName = $this.find('h4').text();
@@ -271,7 +355,7 @@ $(function() {
         $this.addClass('active');
 
         // 주소로 좌표를 검색합니다
-        geocoder.addressSearch(addr, function(result, status) {
+        geocoder.addressSearch(addr, function (result, status) {
             if (status === kakao.maps.services.Status.OK) {
                 var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
 
@@ -283,7 +367,7 @@ $(function() {
 
                 // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                 map.panTo(coords);
-            } 
+            }
         });
     });
 });

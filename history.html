@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZA HUT | BRAND HISTORY</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,900;1,900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/history.css">
+
+</head>
+
+<body>
+
+    <div id="header-include"></div>
+
+    <!-- ── 히어로 ── -->
+    <section class="history-hero">
+        <div class="inner">
+            <p class="hero-eyebrow">Since 1958</p>
+            <h1 class="hero-title"><span>HISTORY</span></h1>
+            <p class="hero-desc">한 조각의 피자에서 시작된 위대한 여정.<br>피자헛이 걸어온 66년의 역사를 만나보세요.</p>
+        </div>
+        <div class="hero-line"></div>
+    </section>
+
+    <!-- ── 타임라인 ── -->
+    <section class="history-section">
+        <div class="timeline-wrap">
+            <div class="timeline-line">
+                <div class="timeline-progress" id="tlProgress"></div>
+            </div>
+
+            <!-- 1958 -->
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Foundation</p>
+                        <h3 class="tl-title">피자헛의 탄생</h3>
+                        <p class="tl-desc">캔자스 주 위치타에서 대학생 프랭크와 댄 카니 형제가 어머니에게 $600를 빌려 첫 피자헛을 오픈했습니다. 이 작은 가게가 세계 최대 피자
+                            브랜드의 출발점이 됩니다.</p>
+                        <span class="tl-tag">Kansas, USA</span>
+                    </div>
+                </div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1958</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-empty"></div>
+            </div>
+
+            <!-- 1959 -->
+            <div class="tl-item">
+                <div class="tl-empty"></div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1959</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Expansion</p>
+                        <h3 class="tl-title">프랜차이즈 시스템 도입</h3>
+                        <p class="tl-desc">창업 단 1년 만에 가맹점 시스템을 도입하며 빠른 속도로 미국 전역으로 확산. 연간 수십 개의 매장이 개설되며 전국 체인으로 성장합니다.
+                        </p>
+                        <span class="tl-tag">Franchise Launch</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1968 -->
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Global</p>
+                        <h3 class="tl-title">첫 해외 진출 — 캐나다·영국</h3>
+                        <p class="tl-desc">캐나다와 영국에 첫 해외 매장을 오픈하며 글로벌 브랜드로의 첫 발을 내딛었습니다. 이를 기점으로 피자헛은 전 세계로 뻗어나갑니다.</p>
+                        <span class="tl-tag">Global Expansion</span>
+                    </div>
+                </div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1968</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-empty"></div>
+            </div>
+
+            <!-- 1972 -->
+            <div class="tl-item">
+                <div class="tl-empty"></div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1972</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Milestone</p>
+                        <h3 class="tl-title">뉴욕증권거래소 상장</h3>
+                        <p class="tl-desc">NYSE 상장으로 세계 최대 피자 레스토랑 체인으로 공식 인정받았습니다. 이 시점에 피자헛은 전 세계 1,000개 이상의 매장을 운영하고
+                            있었습니다.</p>
+                        <span class="tl-tag">NYSE Listed</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1980 -->
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Innovation</p>
+                        <h3 class="tl-title">팬 피자 출시 — 피자의 혁명</h3>
+                        <p class="tl-desc">두껍고 바삭한 팬 도우로 전 세계 피자 시장의 판도를 뒤바꿨습니다. 팬 피자는 지금도 피자헛을 대표하는 시그니처 메뉴로 전 세계에서
+                            사랑받고 있습니다.</p>
+                        <span class="tl-tag">Pan Pizza</span>
+                    </div>
+                </div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1980</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-empty"></div>
+            </div>
+
+            <!-- 1985 -->
+            <div class="tl-item">
+                <div class="tl-empty"></div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1985</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Korea</p>
+                        <h3 class="tl-title">한국 1호점 오픈 — 이태원</h3>
+                        <p class="tl-desc">서울 이태원에 한국 첫 매장을 오픈하며 한국 피자 문화의 새 장을 열었습니다. 피자헛은 한국인에게 피자라는 음식을 처음 소개한
+                            브랜드입니다.</p>
+                        <span class="tl-tag">Korea Launch</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1994 -->
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Innovation</p>
+                        <h3 class="tl-title">스터프드 크러스트 — 치즈가 터지다</h3>
+                        <p class="tl-desc">크러스트 안에 치즈를 가득 채운 스터프드 크러스트 피자 출시. 전 세계적으로 폭발적인 반응을 얻으며 피자 업계의 게임 체인저가 됩니다.
+                        </p>
+                        <span class="tl-tag">Stuffed Crust</span>
+                    </div>
+                </div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">1994</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-empty"></div>
+            </div>
+
+            <!-- 2010 -->
+            <div class="tl-item">
+                <div class="tl-empty"></div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">2010</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Digital</p>
+                        <h3 class="tl-title">온라인·앱 주문 서비스 도입</h3>
+                        <p class="tl-desc">디지털 전환의 선두에 서서 온라인 및 모바일 앱 주문 시스템을 도입. 고객 편의를 혁신적으로 향상시키며 디지털 시대의 피자헛으로
+                            거듭납니다.</p>
+                        <span class="tl-tag">Digital First</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="tl-item">
+                <div class="tl-card">
+                    <div class="tl-card-inner">
+                        <p class="tl-category">Premium</p>
+                        <h3 class="tl-title">블랙라벨 & 비주얼 테이스트 론칭</h3>
+                        <p class="tl-desc">프리미엄 블랙라벨 라인 론칭과 함께 'Visual Taste Renewal' 캠페인을 통해 새로운 피자헛의 비전을 선보였습니다. 맛과
+                            비주얼 모두를 혁신한 새 시대의 시작입니다.</p>
+                        <span class="tl-tag">New Era</span>
+                    </div>
+                </div>
+                <div class="tl-center">
+                    <span class="tl-year-badge">2023</span>
+                    <div class="tl-dot"></div>
+                </div>
+                <div class="tl-empty"></div>
+            </div>
+
+        </div>
+
+        <!-- 타임라인 끝 -->
+        <div class="history-end">
+            <div class="history-end-line"></div>
+            <p class="history-end-text">And the story continues</p>
+        </div>
+    </section>
+
+<div id="footer-include"></div>
+
+    <script src="js/script.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIZZA HUT | Visual Taste Renewal</title>
+    <!-- External Libraries -->
+    <script
+        src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js)"></script>
+    <script
+        src="[https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js](https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js)"></script>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pizza.css">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="js/script.js" defer></script>
+    <script src="js/pizza.js"></script>
+
+</head>
+
+<body>
+    <div id="header-include"></div>
+    <main>
+        
+    <div id="header-include"></div>
+ 
+    <!-- ── 히어로 ── -->
+    <section class="menu-hero">
+        <div class="inner">
+            <p class="menu-hero-eyebrow">Crafted with Passion</p>
+            <h1 class="menu-hero-title">Pizza <span>&</span> Sides</h1>
+            <p class="menu-hero-desc">피자헛의 모든 메뉴를 만나보세요.</p>
+        </div>
+    </section>
+ 
+    <!-- ── 카테고리 탭 ── -->
+    <div class="menu-tab-wrap">
+        <div class="menu-tabs">
+            <button class="tab-btn active" data-tab="pizza">Pizza <span class="tab-count">8</span></button>
+            <button class="tab-btn" data-tab="side">Side <span class="tab-count">4</span></button>
+            <button class="tab-btn" data-tab="drink">Drink <span class="tab-count">3</span></button>
+        </div>
+    </div>
+ 
+    <!-- ── 메뉴 섹션 ── -->
+    <section class="menu-section">
+        <div class="menu-inner">
+ 
+            <!-- PIZZA 패널 -->
+            <div class="menu-panel active" id="panel-pizza">
+                <div class="panel-header">
+                    <div>
+                        <h2 class="panel-title">PAN & <span>CRAFT</span></h2>
+                        <p class="panel-desc">피자헛을 대표하는 시그니처 피자 라인업</p>
+                    </div>
+                </div>
+ 
+                <div class="sub-filter">
+                    <button class="sub-btn active" data-sub="all">전체</button>
+                    <button class="sub-btn" data-sub="blacklabel">블랙라벨</button>
+                    <button class="sub-btn" data-sub="classic">클래식</button>
+                    <button class="sub-btn" data-sub="cheese">치즈</button>
+                </div>
+ 
+                <div class="menu-grid" id="grid-pizza">
+ 
+                    <div class="menu-card new"
+                        data-cat="블랙라벨"
+                        data-sub="blacklabel"
+                        data-name="블랙라벨 트러플"
+                        data-desc="국내산 트러플 오일과 트러플 소스를 겹겹이 레이어드한 피자헛의 최고급 라인. 묵직하고 깊은 향이 한 조각 한 조각에 스며들어 있습니다."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"29,900"},{"label":"L (33cm)","sub":"2~3인","price":"38,900"},{"label":"XL (40cm)","sub":"3~4인","price":"46,900"}]'
+                        data-tags="밀,우유,대두,닭고기" data-badge="new"
+                        data-img="images/event3.png" data-emoji="🍕">
+                        <div class="card-img">
+                            <img src="images/event3.png" alt="블랙라벨 트러플" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍕</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">블랙라벨</p>
+                            <h3 class="card-name">블랙라벨 트러플</h3>
+                            <p class="card-desc">트러플 오일 · 트러플 소스 · 모짜렐라</p>
+                            <p class="card-price">29,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card best"
+                        data-cat="클래식"
+                        data-sub="classic"
+                        data-name="팬 피자 클래식"
+                        data-desc="1980년 탄생해 지금까지 사랑받는 피자헛의 원조 팬 피자. 두껍고 바삭한 도우와 풍성한 토핑의 완벽한 조화를 경험하세요."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"19,900"},{"label":"L (33cm)","sub":"2~3인","price":"27,900"},{"label":"XL (40cm)","sub":"3~4인","price":"34,900"}]'
+                        data-tags="밀,우유,대두" data-badge="best"
+                        data-img="images/event2.png" data-emoji="🍕">
+                        <div class="card-img">
+                            <img src="images/event2.png" alt="팬 피자 클래식" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍕</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">클래식</p>
+                            <h3 class="card-name">팬 피자 클래식</h3>
+                            <p class="card-desc">피자헛 오리지널 팬 도우 · 토마토 소스</p>
+                            <p class="card-price">19,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card new"
+                        data-cat="치즈"
+                        data-sub="cheese"
+                        data-name="3X 한근 치즈페스타"
+                        data-desc="무려 한 근(600g)의 치즈가 들어간 피자헛의 치즈 축제 대표작. 두 겹 세 겹 쌓인 치즈가 뜨거운 열기에 녹아내리는 경험을 선사합니다."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"24,900"},{"label":"L (33cm)","sub":"2~3인","price":"32,900"},{"label":"XL (40cm)","sub":"3~4인","price":"39,900"}]'
+                        data-tags="밀,우유,대두" data-badge="new"
+                        data-img="images/event2.png" data-emoji="🧀">
+                        <div class="card-img">
+                            <img src="images/event2.png" alt="3X 한근 치즈페스타" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🧀</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">치즈</p>
+                            <h3 class="card-name">3X 한근 치즈페스타</h3>
+                            <p class="card-desc">한근 모짜렐라 · 체다 · 에멘탈</p>
+                            <p class="card-price">24,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="블랙라벨"
+                        data-sub="blacklabel"
+                        data-name="블랙라벨 화이트 트러플"
+                        data-desc="화이트 트러플의 섬세하고 고급스러운 향이 크림 소스 위에 우아하게 퍼지는 블랙라벨 프리미엄 메뉴입니다."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"31,900"},{"label":"L (33cm)","sub":"2~3인","price":"41,900"},{"label":"XL (40cm)","sub":"3~4인","price":"49,900"}]'
+                        data-tags="밀,우유,대두,닭고기" data-badge=""
+                        data-img="images/트러플.png" data-emoji="🍕">
+                        <div class="card-img">
+                            <img src="images/트러플.png" alt="화이트 트러플" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍕</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">블랙라벨</p>
+                            <h3 class="card-name">블랙라벨 화이트 트러플</h3>
+                            <p class="card-desc">화이트 트러플 오일 · 크림 소스</p>
+                            <p class="card-price">31,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card best"
+                        data-cat="클래식"
+                        data-sub="classic"
+                        data-name="스터프드 크러스트"
+                        data-desc="1994년 출시 이후 전 세계를 사로잡은 피자헛의 혁신. 모짜렐라 치즈가 가득 찬 크러스트가 한 입 베어 물면 쭉 늘어납니다."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"22,900"},{"label":"L (33cm)","sub":"2~3인","price":"30,900"},{"label":"XL (40cm)","sub":"3~4인","price":"37,900"}]'
+                        data-tags="밀,우유,대두" data-badge="best"
+                        data-img="images/event1.png" data-emoji="🍕">
+                        <div class="card-img">
+                            <img src="images/event1.png" alt="스터프드 크러스트" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍕</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">클래식</p>
+                            <h3 class="card-name">스터프드 크러스트</h3>
+                            <p class="card-desc">크러스트 안 모짜렐라 치즈 · 토마토 소스</p>
+                            <p class="card-price">22,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="치즈"
+                        data-sub="cheese"
+                        data-name="치즈더블더블"
+                        data-desc="도우 위에도, 크러스트 안에도, 소스 사이에도 치즈가 가득한 치즈 러버를 위한 궁극의 피자."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"21,900"},{"label":"L (33cm)","sub":"2~3인","price":"28,900"},{"label":"XL (40cm)","sub":"3~4인","price":"35,900"}]'
+                        data-tags="밀,우유,대두" data-badge=""
+                        data-img="images/event2.png" data-emoji="🧀">
+                        <div class="card-img">
+                            <img src="images/event2.png" alt="치즈더블더블" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🧀</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">치즈</p>
+                            <h3 class="card-name">치즈더블더블</h3>
+                            <p class="card-desc">4종 치즈 블렌드 · 크러스트 치즈 충전</p>
+                            <p class="card-price">21,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="클래식"
+                        data-sub="classic"
+                        data-name="슈퍼 슈프림"
+                        data-desc="소고기, 돼지고기, 각종 채소가 듬뿍 올라간 피자헛의 대표 올인원 피자. 풍성한 토핑이 한 번에 다양한 맛을 선사합니다."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"20,900"},{"label":"L (33cm)","sub":"2~3인","price":"28,900"},{"label":"XL (40cm)","sub":"3~4인","price":"35,900"}]'
+                        data-tags="밀,우유,대두,소고기,돼지고기" data-badge=""
+                        data-img="images/event1.png" data-emoji="🍕">
+                        <div class="card-img">
+                            <img src="images/event1.png" alt="슈퍼 슈프림" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍕</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">클래식</p>
+                            <h3 class="card-name">슈퍼 슈프림</h3>
+                            <p class="card-desc">소고기 · 돼지고기 · 피망 · 버섯 · 올리브</p>
+                            <p class="card-price">20,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card new"
+                        data-cat="블랙라벨"
+                        data-sub="blacklabel"
+                        data-name="블랙라벨 감베로 로쏘"
+                        data-desc="이탈리아산 붉은 새우 감베로 로쏘와 리코타 치즈의 만남. 깊은 바다의 단맛과 크리미한 풍미가 어우러진 최상급 피자."
+                        data-sizes='[{"label":"R (23cm)","sub":"1~2인","price":"34,900"},{"label":"L (33cm)","sub":"2~3인","price":"44,900"},{"label":"XL (40cm)","sub":"3~4인","price":"52,900"}]'
+                        data-tags="밀,우유,대두,갑각류,어류" data-badge="new"
+                        data-img="images/event3.png" data-emoji="🦐">
+                        <div class="card-img">
+                            <img src="images/event3.png" alt="감베로 로쏘" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🦐</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">블랙라벨</p>
+                            <h3 class="card-name">블랙라벨 감베로 로쏘</h3>
+                            <p class="card-desc">이탈리아산 붉은 새우 · 리코타 · 루꼴라</p>
+                            <p class="card-price">34,900원 <span>R 기준</span></p>
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+ 
+            <!-- SIDE 패널 -->
+            <div class="menu-panel" id="panel-side">
+                <div class="panel-header">
+                    <div>
+                        <h2 class="panel-title">SIDE <span>DISH</span></h2>
+                        <p class="panel-desc">피자와 함께하면 더 맛있는 사이드 메뉴</p>
+                    </div>
+                </div>
+                <div class="menu-grid" id="grid-side">
+ 
+                    <div class="menu-card best"
+                        data-cat="사이드"
+                        data-sub="all"
+                        data-name="윙스트리트 핫윙"
+                        data-desc="바삭하게 튀긴 치킨 윙에 매콤하고 달콤한 핫소스를 코팅한 피자헛의 인기 사이드. 맥주와의 조합이 압도적입니다."
+                        data-sizes='[{"label":"5조각","sub":"1인","price":"7,900"},{"label":"10조각","sub":"2인","price":"13,900"},{"label":"20조각","sub":"3~4인","price":"24,900"}]'
+                        data-tags="밀,닭고기,대두" data-badge="best"
+                        data-img="images/event1.png" data-emoji="🍗">
+                        <div class="card-img">
+                            <img src="images/event1.png" alt="핫윙" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍗</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">치킨</p>
+                            <h3 class="card-name">윙스트리트 핫윙</h3>
+                            <p class="card-desc">바삭한 치킨 윙 · 핫 버팔로 소스</p>
+                            <p class="card-price">7,900원 <span>5조각 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="사이드"
+                        data-sub="all"
+                        data-name="갈릭 브레드"
+                        data-desc="노릇하게 구운 바게트 위에 버터 갈릭 소스를 듬뿍 바른 피자헛의 인기 빵 사이드. 피자 소스와 찍어먹으면 최고입니다."
+                        data-sizes='[{"label":"4조각","sub":"1~2인","price":"5,900"},{"label":"8조각","sub":"2~3인","price":"9,900"}]'
+                        data-tags="밀,우유,대두" data-badge=""
+                        data-img="images/event2.png" data-emoji="🥖">
+                        <div class="card-img">
+                            <img src="images/event2.png" alt="갈릭 브레드" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🥖</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">빵</p>
+                            <h3 class="card-name">갈릭 브레드</h3>
+                            <p class="card-desc">버터 갈릭 소스 · 파슬리 · 치즈</p>
+                            <p class="card-price">5,900원 <span>4조각 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card new"
+                        data-cat="사이드"
+                        data-sub="all"
+                        data-name="트러플 포테이토"
+                        data-desc="바삭하게 튀긴 웨지 감자에 트러플 오일과 파마산 치즈를 뿌린 고급스러운 사이드 메뉴."
+                        data-sizes='[{"label":"S","sub":"1인","price":"6,900"},{"label":"L","sub":"2인","price":"10,900"}]'
+                        data-tags="밀,우유,대두" data-badge="new"
+                        data-img="images/event3.png" data-emoji="🍟">
+                        <div class="card-img">
+                            <img src="images/event3.png" alt="트러플 포테이토" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍟</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">감자</p>
+                            <h3 class="card-name">트러플 포테이토</h3>
+                            <p class="card-desc">웨지 감자 · 트러플 오일 · 파마산</p>
+                            <p class="card-price">6,900원 <span>S 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="사이드"
+                        data-sub="all"
+                        data-name="시저 샐러드"
+                        data-desc="신선한 로메인 상추에 시저 드레싱, 크루통, 파마산 치즈를 곁들인 클래식 샐러드. 느끼함을 잡아주는 상큼한 사이드."
+                        data-sizes='[{"label":"1인분","sub":"1인","price":"7,900"}]'
+                        data-tags="밀,우유,달걀,대두,어류" data-badge=""
+                        data-img="images/event1.png" data-emoji="🥗">
+                        <div class="card-img">
+                            <img src="images/event1.png" alt="시저 샐러드" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🥗</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">샐러드</p>
+                            <h3 class="card-name">시저 샐러드</h3>
+                            <p class="card-desc">로메인 · 시저 드레싱 · 파마산 · 크루통</p>
+                            <p class="card-price">7,900원</p>
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+ 
+            <!-- DRINK 패널 -->
+            <div class="menu-panel" id="panel-drink">
+                <div class="panel-header">
+                    <div>
+                        <h2 class="panel-title">DRINKS <span>&</span> MORE</h2>
+                        <p class="panel-desc">피자를 더욱 맛있게 완성해주는 음료</p>
+                    </div>
+                </div>
+                <div class="menu-grid" id="grid-drink">
+ 
+                    <div class="menu-card best"
+                        data-cat="음료"
+                        data-sub="all"
+                        data-name="콜라 1.25L"
+                        data-desc="피자와 가장 잘 어울리는 조합. 시원하고 청량한 코카콜라로 피자헛의 맛을 완성하세요."
+                        data-sizes='[{"label":"355ml 캔","sub":"1인","price":"2,500"},{"label":"600ml","sub":"1~2인","price":"3,500"},{"label":"1.25L","sub":"3~4인","price":"5,500"}]'
+                        data-tags="" data-badge="best"
+                        data-img="images/통신사이벤트.png" data-emoji="🥤">
+                        <div class="card-img">
+                            <img src="images/통신사이벤트.png" alt="콜라" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🥤</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">탄산</p>
+                            <h3 class="card-name">콜라 1.25L</h3>
+                            <p class="card-desc">코카콜라 오리지널</p>
+                            <p class="card-price">5,500원 <span>1.25L 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card"
+                        data-cat="음료"
+                        data-sub="all"
+                        data-name="스프라이트 1.25L"
+                        data-desc="깔끔하고 시원한 레몬라임 탄산음료. 느끼함을 상쾌하게 씻어내는 피자의 단짝 음료입니다."
+                        data-sizes='[{"label":"355ml 캔","sub":"1인","price":"2,500"},{"label":"1.25L","sub":"3~4인","price":"5,500"}]'
+                        data-tags="" data-badge=""
+                        data-img="images/통신사이벤트.png" data-emoji="🥤">
+                        <div class="card-img">
+                            <img src="images/통신사이벤트.png" alt="스프라이트" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🥤</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">탄산</p>
+                            <h3 class="card-name">스프라이트 1.25L</h3>
+                            <p class="card-desc">레몬라임 탄산음료</p>
+                            <p class="card-price">5,500원 <span>1.25L 기준</span></p>
+                        </div>
+                    </div>
+ 
+                    <div class="menu-card new"
+                        data-cat="음료"
+                        data-sub="all"
+                        data-name="트러플 에이드"
+                        data-desc="피자헛 블랙라벨 론칭 기념 한정 음료. 트러플 향의 허브 시럽과 탄산수가 만나 독특하고 세련된 맛을 선사합니다."
+                        data-sizes='[{"label":"1잔 (400ml)","sub":"1인","price":"5,900"}]'
+                        data-tags="" data-badge="new"
+                        data-img="images/트러플.png" data-emoji="🍹">
+                        <div class="card-img">
+                            <img src="images/트러플.png" alt="트러플 에이드" onerror="this.parentElement.innerHTML='<div class=\'card-img-placeholder\'>🍹</div>'">
+                        </div>
+                        <div class="card-info">
+                            <p class="card-category-tag">한정음료</p>
+                            <h3 class="card-name">트러플 에이드</h3>
+                            <p class="card-desc">트러플 허브 시럽 · 탄산수 · 레몬</p>
+                            <p class="card-price">5,900원</p>
+                        </div>
+                    </div>
+ 
+                </div>
+            </div>
+ 
+        </div>
+    </section>
+ 
+    <!-- ── 메뉴 모달 ── -->
+    <div class="menu-modal-overlay" id="menuModalOverlay">
+        <div class="menu-modal" id="menuModal">
+            <button class="modal-close" id="modalClose">✕</button>
+            <div class="modal-layout">
+                <div class="modal-img-side">
+                    <img id="mImg" src="" alt="">
+                    <div class="modal-badge-wrap" id="mBadgeWrap"></div>
+                </div>
+                <div class="modal-info-side">
+                    <p class="modal-cat" id="mCat"></p>
+                    <h2 class="modal-name" id="mName"></h2>
+                    <p class="modal-desc-text" id="mDesc"></p>
+                    <div class="modal-divider"></div>
+                    <p class="modal-size-title">사이즈 & 가격</p>
+                    <div class="modal-sizes" id="mSizes"></div>
+                    <div class="modal-tags" id="mTags"></div>
+                    <div class="modal-cta">
+                        <button class="btn-order btn-ready">지금 주문하기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ 
+    <!-- 준비중 모달 (기존 유지) -->
+    <div class="modal-overlay" id="ready-modal">
+        <div class="modal-content">
+            <div class="modal-icon">!</div>
+            <h3>COMING SOON</h3>
+            <p>해당 서비스는 현재 준비 중입니다.<br>조금만 기다려 주세요.</p>
+            <button class="btn-modal-close">확인</button>
+        </div>
+    </div>
+ 
+    <footer class="premium-footer">
+        <div class="footer-container f_inner">
+            <div class="f_top">
+                <div class="f_logo">PIZZA<span>HUT</span></div>
+                <ul class="f_sns">
+                    <li><a href="#"><img src="images/ins1.svg" alt="Instagram"></a></li>
+                    <li><a href="#"><img src="images/youtube.svg" alt="YouTube"></a></li>
+                    <li><a href="#"><img src="images/blog.svg" alt="Blog"></a></li>
+                </ul>
+            </div>
+            <div class="f_mid">
+                <div class="f_info">
+                    <p>주식회사 피자헛 | 대표이사 : 조윤상 | 사업자등록번호 : 120-81-63948</p>
+                    <p>서울시 영등포구 국회대로 74길 4, 9~11층</p>
+                    <p>CS : 1588-5588 (운영시간 10:30 ~ 22:00)</p>
+                </div>
+                <div class="f_policy">
+                    <a href="#"><strong>개인정보처리방침</strong></a>
+                    <a href="#">이용약관</a>
+                    <a href="#">위치정보이용약관</a>
+                </div>
+            </div>
+            <div class="f_bottom">
+                <p class="copyright">Copyright © BY PIZZA HUT KOREA LTD. ALL RIGHTS RESERVED</p>
+            </div>
+        </div>
+    </footer>
+    </main>
+   <div id="footer-include"></div>
+
+
+</body>
+
+</html>
