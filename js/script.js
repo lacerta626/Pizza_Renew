@@ -4,7 +4,38 @@
  */
 
 gsap.registerPlugin(ScrollTrigger);
+function initHeaderLogic() {
+    // 햄버거 메뉴 클릭 이벤트
+    $('.hamburger').off('click').on('click', function () {
+        $('.m_gnb_area, .m_overlay').addClass('active');
+        $('body').css('overflow', 'hidden');
+    });
 
+    $(function () {
+        // 메뉴 열기
+        $('.hamburger').on('click', function () {
+            $('.m_gnb_area, .m_overlay').addClass('active');
+            $('body').css('overflow', 'hidden'); // 스크롤 잠금
+        });
+
+        // 메뉴 닫기 (X버튼 또는 배경 클릭)
+        $('.m_close, .m_overlay').on('click', function () {
+            $('.m_gnb_area, .m_overlay').removeClass('active');
+            $('body').css('overflow', 'auto'); // 스크롤 해제
+        });
+
+        // 아코디언 메뉴 (GNB 메뉴 클릭 시)
+        $('.m_gnb .depth1').on('click', function (e) {
+            e.preventDefault();
+
+            const $subMenu = $(this).next('.m_submenu');
+
+            // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
+            $subMenu.stop().slideToggle(300);
+            $(this).toggleClass('on');
+        });
+    });
+}
 // js/common.js 또는 script.js 상단
 $(function () {
     // #header-include 영역에 header.html 파일을 불러와서 넣습니다.
@@ -23,7 +54,10 @@ $(function () {
         .to('.hero-title', { opacity: 1, y: 0, duration: 1.0, ease: 'expo.out' }, '-=0.4')
         .to('.hero-desc', { opacity: 1, y: 0, duration: 0.8, ease: 'power3.out' }, '-=0.5')
         .to('.hero-line', { opacity: 1, duration: 1.0, ease: 'power2.out' }, '-=0.3');
-
+    /* ── 히어로 애니메이션 ── */
+    gsap.from('.menu-hero-eyebrow', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.2 });
+    gsap.from('.menu-hero-title', { opacity: 0, y: 30, duration: 1.0, ease: 'expo.out', delay: 0.35 });
+    gsap.from('.menu-hero-desc', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.55 });
     /* ── 타임라인 아이템 스크롤 등장 ── */
     gsap.utils.toArray('.tl-item').forEach((item, i) => {
         gsap.to(item, {
@@ -70,14 +104,14 @@ $(function () {
 });
 // footer
 // script.js 상단 로드 부분
-$(function() {
+$(function () {
     // 헤더 불러오기
-    $("#header-include").load("header.html", function() {
-        initHeaderLogic(); 
+    $("#header-include").load("header.html", function () {
+        initHeaderLogic();
     });
 
     // 푸터 불러오기
-    $("#footer-include").load("footer.html", function() {
+    $("#footer-include").load("footer.html", function () {
         initFooterLogic(); // 푸터 등장 애니메이션을 위해 추가
     });
 });
@@ -98,43 +132,7 @@ function initFooterLogic() {
 }
 
 
-// 기존에 작성했던 헤더 관련 JS 로직을 함수로 묶어줍니다.
-function initHeaderLogic() {
-    // 햄버거 메뉴 클릭 이벤트
-    $('.hamburger').off('click').on('click', function () {
-        $('.m_gnb_area, .m_overlay').addClass('active');
-        $('body').css('overflow', 'hidden');
-    });
 
-    /* ==========================================================
-   5. MOBILE UI LOGIC
-   - 햄버거 메뉴 및 서브메뉴 아코디언 제어
-   ========================================================== */
-    $(function () {
-        // 메뉴 열기
-        $('.hamburger').on('click', function () {
-            $('.m_gnb_area, .m_overlay').addClass('active');
-            $('body').css('overflow', 'hidden'); // 스크롤 잠금
-        });
-
-        // 메뉴 닫기 (X버튼 또는 배경 클릭)
-        $('.m_close, .m_overlay').on('click', function () {
-            $('.m_gnb_area, .m_overlay').removeClass('active');
-            $('body').css('overflow', 'auto'); // 스크롤 해제
-        });
-
-        // 아코디언 메뉴 (GNB 메뉴 클릭 시)
-        $('.m_gnb .depth1').on('click', function (e) {
-            e.preventDefault();
-
-            const $subMenu = $(this).next('.m_submenu');
-
-            // 클릭한 메뉴 토글 (나머지는 닫고 싶으면 .slideUp() 추가)
-            $subMenu.stop().slideToggle(300);
-            $(this).toggleClass('on');
-        });
-    });
-}
 // modal* ==========================================================
 $(function () {
     // 1. 모달 띄우기: 하위 메뉴가 없는 일반 링크(#)나 .btn-ready만 실행

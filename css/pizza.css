@@ -9,7 +9,7 @@
         .menu-hero-desc { font-family: 'SUIT', sans-serif; font-size: 0.95rem; color: var(--text-sub); margin-top: 20px; line-height: 1.8; }
  
         /* ── 카테고리 탭 (sticky) ── */
-        .menu-tab-wrap { position: sticky; top: 70px; z-index: 100; background: rgba(0,0,0,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+        .menu-tab-wrap { position: sticky; top: 70px; z-index: 50; backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
         .menu-tabs { display: flex; gap: 0; max-width: 1200px; margin: 0 auto; padding: 0 40px; overflow-x: auto; scrollbar-width: none; }
         .menu-tabs::-webkit-scrollbar { display: none; }
         .tab-btn { flex: 0 0 auto; padding: 20px 32px; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); background: transparent; border: none; border-bottom: 2px solid transparent; cursor: pointer; transition: color 0.25s, border-color 0.25s; white-space: nowrap; }
@@ -102,8 +102,6 @@
  
         /* CTA */
         .modal-cta { margin-top: auto; }
-        .btn-order { width: 100%; padding: 14px; background: var(--red); color: #fff; font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s; }
-        .btn-order:hover { background: #c8111a; box-shadow: 0 8px 28px var(--red-glow); transform: translateY(-1px); }
  
         /* ── 반응형 ── */
         @media (max-width: 1024px) { .menu-grid { grid-template-columns: repeat(2, 1fr); } }

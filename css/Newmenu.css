@@ -1,3 +1,11 @@
+/* ── 히어로 ── */
+.menu-hero { position: relative; padding: 140px 0 80px; background: #000; text-align: center; overflow: hidden; }
+.menu-hero::before { content: 'MENU'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Montserrat', sans-serif; font-size: clamp(100px, 20vw, 220px); font-weight: 900; color: transparent; -webkit-text-stroke: 1px #191919; pointer-events: none; white-space: nowrap; letter-spacing: -0.04em; }
+.menu-hero-eyebrow { font-family: 'Montserrat', sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.25em; color: var(--red); text-transform: uppercase; margin-bottom: 20px; }
+.menu-hero-title { font-family: 'Montserrat', sans-serif; font-size: clamp(2.4rem, 6vw, 4.5rem); font-weight: 900; font-style: italic; color: #fff; line-height: 1; letter-spacing: -0.02em; }
+.menu-hero-title span { color: var(--red); }
+.menu-hero-desc { font-family: 'SUIT', sans-serif; font-size: 0.95rem; color: var(--text-sub); margin-top: 20px; line-height: 1.8; }
+
 .menu-grid-section { padding: 100px 0; background: #000; }
 .section-title-wrap { text-align: center; margin-bottom: 60px; }
 .sub-page-title { font-family: 'Montserrat', sans-serif; font-size: 3rem; font-weight: 900; color: var(--red); font-style: italic; }

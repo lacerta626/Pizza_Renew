@@ -110,10 +110,4 @@
         $(document).on('keydown', function (e) {
             if (e.key === 'Escape') closeModal();
         });
- 
-        /* ── 히어로 애니메이션 ── */
-        gsap.from('.menu-hero-eyebrow', { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.2 });
-        gsap.from('.menu-hero-title',   { opacity: 0, y: 30, duration: 1.0, ease: 'expo.out',   delay: 0.35 });
-        gsap.from('.menu-hero-desc',    { opacity: 0, y: 20, duration: 0.8, ease: 'power3.out', delay: 0.55 });
- 
     });
