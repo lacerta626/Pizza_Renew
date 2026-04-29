@@ -170,7 +170,7 @@ header{display:none;}
 .menu-tit p.hide{position:absolute;top:0;left:0;z-index:-1;-webkit-text-stroke:1px rgba(238,28,37,.3);color:transparent;transition:.5s;}
 .menu-tit p.hide:nth-child(2){transform:translate(50px,50px);}
 .menu-tit p.hide:nth-child(3){transform:translate(100px,100px);}
-.menu-desc{max-width:350px;font-family:'Aggravo',sans-serif;font-size:1.2rem;color:#fff;line-height:1.6;text-align:left;background:rgba(0,0,0,.5);padding:20px;border-left:3px solid var(--red);}
+.menu-desc{max-width:350px;font-family:'Aggravo',sans-serif;font-size:1.2rem;color:#fff;line-height:1.6;text-align:left;background:rgba(0,0,0,.5);padding:20px;border-left:3px solid var(--red);font-weight: 200;}
 .m_pizza-menu-section{display:none;}
 
 @media(max-width:768px){
